@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.demo.dao.AccountDao">
+    <resultMap id="defuaresultMap" type="cn.demo.model.Account">
+        <id column="id" property="id"></id>
+        <result column="name" property="name"></result>
+        <result column="money" property="money"></result>
+    </resultMap>
+
+
+    <!--于接口对应的方法-->
+    <select id="getAllAccount" resultMap="defuaresultMap">
+        SELECT
+        id,
+        name,
+        money
+        FROM account
+    </select>
+
+
+</mapper>

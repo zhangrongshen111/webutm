@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.demo.dao.AirTestDao">
+    <resultMap id="findAllMap" type="cn.demo.model.AirTest">
+        <result column="ame" property="name"></result>
+        <result column="Longitude" property="longitude"></result>
+        <result column="Latitude" property="latitude"></result>
+    </resultMap>
+
+    <!--于接口对应的方法-->
+    <select id="findAll" resultMap="findAllMap">
+        SELECT
+        name,
+        longitude,
+        latitude
+        FROM airtest
+    </select>
+</mapper>

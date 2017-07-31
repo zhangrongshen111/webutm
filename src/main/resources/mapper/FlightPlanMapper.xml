@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.demo.dao.FlightPlanDao">
+    <resultMap id="FlightPlanInfo" type="cn.demo.model.FlightPlan">
+        <result column="fp_id"  property="fpId"/>
+        <result column="startDate" property="startDate"/>
+        <result column="endDate" property="endDate"/>
+        <result column="startPoint" property="startPoint"/>
+        <result column="endPoint" property="endPoint"/>
+        <result column="flightHeight" property="flightHeight"/>
+        <result column="description" property="description"/>
+        <result column="ApplyDate" property="applyDate"/>
+        <result column="UavId" property="uavId"/>
+    </resultMap>
+    <!--按条件查询全部信息-->
+    <select id="getAll" resultMap="FlightPlanInfo">
+        select * from flightplan limit 0,12
+    </select>
+
+
+
+
+</mapper>
