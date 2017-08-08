@@ -15,8 +15,31 @@
         <result column="UavId" property="uavId"/>
     </resultMap>
     <!--按条件查询全部信息-->
-    <select id="getAll" resultMap="FlightPlanInfo">
-        select * from flightplan limit 0,12
+    <select id="getAllByChoose" resultMap="FlightPlanInfo">
+        select * from flightplan WHERE 1=1
+        <if test="startDate!=null and endDate==null">
+            and ApplyDate <![CDATA[>=]]> #{startDate}
+        </if>
+        <if test="startDate==null and endDate!=null">
+            and ApplyDate <![CDATA[<=]]> #{endDate}
+        </if>
+        <if test="startDate!=null and endDate!=null">
+            and ApplyDate between #{startDate} and #{endDate}
+        </if>
+        limit #{countNumber},#{pageSize}
+    </select>
+    <!--获取总记录数-->
+    <select id="getCountByChoose" resultType="java.lang.Integer">
+        select COUNT(fp_id) from flightplan WHERE 1=1
+        <if test="startDate!=null and endDate==null">
+            and ApplyDate <![CDATA[>=]]> #{startDate}
+        </if>
+        <if test="startDate==null and endDate!=null">
+            and ApplyDate <![CDATA[<=]]> #{endDate}
+        </if>
+        <if test="startDate!=null and endDate!=null">
+            and ApplyDate between #{startDate} and #{endDate}
+        </if>
     </select>
 
 

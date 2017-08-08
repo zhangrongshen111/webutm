@@ -16,28 +16,23 @@ import java.util.List;
  * Created by HDPC on 2017/7/27.
  */
 @Controller
-@RequestMapping(value = "/user",method = RequestMethod.POST)
+@RequestMapping("/user")
 public class UserController {
     @Autowired
     private UserService userService;
-    @RequestMapping(value = "/login",method = RequestMethod.POST)
-    public String loginShow(HttpSession session,HttpServletRequest request){
-        //,@RequestParam("loginName") String loginName,@RequestParam("pwd") String pwd
-        String loginName=request.getParameter("loginName");
-        String pwd=request.getParameter("pwd");
+    @RequestMapping("/login")
+    public String loginShow(@RequestParam String loginName,@RequestParam String pwd, HttpSession session,HttpServletRequest request){
+
         User user=userService.login(loginName,pwd);
-        System.out.println("进入controller=======================================");
         if(user==null){
             request.setAttribute("message","账号或密码错误！请重新输入！！！");
             return "index";
         }else{
-            session.setAttribute("loginName",user.getLoginName());
-            return "index";
+            session.setAttribute("userId",user.getId());
+            return "/flightPlan/show";
         }
 
     }
-
-
 
     @RequestMapping(value = "/show",method = RequestMethod.GET)
     public String show(){

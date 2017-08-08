@@ -97,7 +97,7 @@ function init(){
         success: function (data){
             provinces = data;
 
-             provinces = resp;
+             // provinces = resp;
              for (var i = 0; i < provinces.length; i += 1) {
                  var marker;
                  //自定义图标

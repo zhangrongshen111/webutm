@@ -3,6 +3,7 @@ package cn.demo.service;
 import cn.demo.dao.FlightPlanDao;
 import cn.demo.model.FlightPlan;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -13,16 +14,12 @@ public interface FlightPlanService {
      * 查询全部飞行计划信息
      * @return
      */
-    public List<FlightPlan> getAll();
+    public List<FlightPlan> getAllByChoose(int countNumber,int pageSize,Date startDate,Date endDate);
 
-    /**
-     * 按条件查询飞行计划信息
-     * @return
-     */
-    public List<FlightPlan> getFlightPlanByChoose();
+
     /**
      * 查询符合条件的飞行计划记录数
      * @return
      */
-    public int getCountByChoose();
+    public int getCountByChoose(int pageSize,Date startDate,Date endDate);
 }
