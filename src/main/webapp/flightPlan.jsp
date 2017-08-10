@@ -194,7 +194,7 @@
                                             <div class="datatables_length" aria-controls="datatable1" calss="form-control input-sm">
                                                 <label class="search-date">
                                                     <li><input type="text" id="endDate" class="Wdate form-control input-sm form-inline" readonly="readonly" onfocus="WdatePicker()"/>&nbsp;&nbsp;截止时间&nbsp;&nbsp;
-                                                    <button type="button" name="search" id="search-btn2" onclick="ajaxShow('firstPage')" class="btn btn-flat btn-sm">查询</button></li>
+                                                    <button type="button" name="search" id="search-btn2" class="btn btn-flat btn-sm">查询</button></li>
                                                 </label>
                                             </div>
                                         </div>
@@ -241,12 +241,13 @@
                             <!--<li><a href="#">»</a></li>-->
                             <!--</ul>-->
                             <span id="curPage">${map["curPage"]}</span>/<span id="countPage">${map["countPage"]}</span>
-                            <select name="" id=""></select>
-                            <a href="#" onclick="ajaxShow('firstPage')">首页</a>
-                            <a href="#" onclick="ajaxShow('prev')">上页</a>
-                            <a href="#" onclick="ajaxShow('next')">下页</a>
-                            <a href="#" onclick="ajaxShow('countPage')">尾页</a>
-                            <%--<a href="#"></a>--%>
+
+                            <a href="#" id="firstPage">首页</a>
+                            <a href="#" id="prevPage">上页</a>
+                            <a href="#" id="nextPage">下页</a>
+                            <a href="#" id="lastPage">尾页</a>
+                            <select name="" id="selectList"></select>
+                            <%--<button style="width:25px;height:25px;">go</button>--%>
                         </div>
                     </div>
                 </div>
@@ -260,61 +261,7 @@
 <script src="/js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="/js/flightPlan.js"></script>
 <script>
-  function ajaxShow (event) {
-        var num=parseInt($("#curPage").html());
-        if(event=='firstPage'){
-            num=1;
-        }
-        if(event=='next'){
-            num++;
-        }
-        if(event=='prev'){
-            num--;
-        }
-        if(event=='countPage'){
-            num=$('#countPage').html();
-        }
-        var startTime=$("#startDate").val();
-        var endTime=$("#endDate").val();
 
-        alert('页码='+num);
-        $.ajax({
-            data:{curPage:num,startDate:startTime,endDate:endTime},
-            url:"/flightPlan/ajax",
-            methodType:"post",
-            dataType:"json",
-            success:function (result) {
-                var fpList=result["fpList"];
-
-                $("#curPage").html(result["curPage"]);
-                $("#countPage").html(result["countPage"]);
-                $("#startDate").attr("value",result["startDate"]);
-                $("#endDate").attr("value",result["endDate"]);
-                alert("startDate"+result["startDate"]);
-                alert("endDate"+result["endDate"]);
-                var text=""
-                for(var i=0;i<fpList.length;i++){
-                    text+="<tr>";
-                    text+="<td>"+fpList[i].fpId+"</td>";
-                    text+="<td>"+new Date(parseInt(fpList[i].startDate.time)).toLocaleDateString()+"</td>";
-                    text+="<td>"+new Date(parseInt(fpList[i].endDate.time)).toLocaleDateString()+"</td>";
-                    text+="<td>"+fpList[i].startPoint+"</td>";
-                    text+="<td>"+fpList[i].endPoint+"</td>";
-                    text+="<td>"+fpList[i].flightHeight+"</td>";
-                    text+="<td>"+fpList[i].description+"</td>";
-                    text+="<td>"+new Date(parseInt(fpList[i].applyDate.time)).toLocaleDateString()+"</td>";
-                    text+="<td>"+fpList[i].uavId+"</td>";
-                    text+="</tr>";
-//                    console.log(fpList[i].startDate.time);
-                }
-                $('.tbody-white').html(text);
-                alert("成功了");
-            },
-            error:function () {
-                    alert("失败了");
-                }
-        });
-    };
 </script>
 </html>
 </body>

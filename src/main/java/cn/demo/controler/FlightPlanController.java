@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -105,5 +106,62 @@ public class FlightPlanController {
         map.put("endDate",endTime);
 
          return map;
+    }
+
+    /**
+     * 根据主键获取信息并跳转到展示页面
+     * @return
+     */
+    @RequestMapping("/getFlightPlan")
+    public String getFlightPlanById(HttpServletRequest request){
+        String id=request.getParameter("id");
+        FlightPlan flightPlan=flightPlanService.getFlightPlanById(Integer.parseInt(id));
+        return "showPlan";
+    }
+
+    /**
+     * 根据主键删除计划信息  异步
+     * @return
+     */
+    @RequestMapping("/deleteFlightPlan")
+    public String deleteFlightPlanById(HttpServletRequest request){
+        String id=request.getParameter("id");
+        int row=flightPlanService.deleteFlightPlanById(id);
+        if(row>0){
+            request.setAttribute("message","删除成功！！！");
+            return "deletePlan";
+        }else{
+            request.setAttribute("message","删除失败！！！");
+            return "deletePlan";
+        }
+    }
+
+    /**
+     * 根据主键修改计划信息
+     * @param request
+     * @param flightPlan
+     * @return
+     */
+    @RequestMapping("/updateFlightPlan")
+    public String updateFlightPlanById(HttpServletRequest request, @RequestParam FlightPlan flightPlan){
+        int row=flightPlanService.updateFlightPlanById(flightPlan);
+        if(row>0){
+            request.setAttribute("message","修改成功！！！");
+            return "deletePlan";
+        }else{
+            request.setAttribute("message","修改失败！！！");
+            return "updatePlan";
+        }
+    }
+
+    public String addFlightPlan(HttpServletRequest request,@RequestParam FlightPlan flightPlan){
+        int row=flightPlanService.addFlightPlan(flightPlan);
+        if(row>0){
+            request.setAttribute("message","添加成功！！！");
+            return "addPlan";
+        }else{
+            request.setAttribute("message","添加失败！！！");
+            return "addPlan";
+        }
     }
 }

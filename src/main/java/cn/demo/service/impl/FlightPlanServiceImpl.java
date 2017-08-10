@@ -39,4 +39,41 @@ public class FlightPlanServiceImpl implements FlightPlanService {
         int countPage=countRow/pageSize+(countRow%pageSize==0?0:1);
         return countPage;
     }
+
+    /**
+     * 根据主键查询信息
+     * @param id
+     * @return
+     */
+    public FlightPlan getFlightPlanById(int id) {
+        return flightPlanDao.getFlightPlanById(id);
+    }
+
+    /**
+     * 根据主键删除信息
+     * @param id
+     * @return
+     */
+    public int deleteFlightPlanById(String id) {
+        return flightPlanDao.deleteFlightPlanById(id);
+    }
+
+    /**
+     * 添加飞行飞行计划信息
+     * @param flightPlan
+     * @return
+     */
+    public int addFlightPlan(FlightPlan flightPlan) {
+        return flightPlanDao.addFlightPlan(flightPlan);
+    }
+
+    /**
+     * 修改飞行计划信息
+     * @param flightPlan
+     * @return
+     */
+    public int updateFlightPlanById(FlightPlan flightPlan) {
+        return flightPlanDao.updateFlightPlanById(flightPlan);
+    }
+
 }

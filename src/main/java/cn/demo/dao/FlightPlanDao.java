@@ -24,4 +24,32 @@ public interface FlightPlanDao {
      * @return
      */
     public int getCountByChoose(@Param("startDate") Date startDate, @Param("endDate") Date endDate);
+
+    /**
+     * 根据主键查询信息
+     * @param id
+     * @return
+     */
+    public FlightPlan getFlightPlanById(@Param("id") int id);
+
+    /**
+     * 根据主键删除信息
+     * @param id
+     * @return
+     */
+    public int deleteFlightPlanById(@Param("id") String id);
+
+    /**
+     * 添加飞行计划信息
+     * @param flightPlan
+     * @return
+     */
+    public int addFlightPlan(@Param("FlightPlan") FlightPlan flightPlan);
+
+    /**
+     * 修改飞行计划信息
+     * @param flightPlan
+     * @return
+     */
+    public int updateFlightPlanById(@Param("FlightPlan") FlightPlan flightPlan);
 }

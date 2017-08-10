@@ -22,4 +22,32 @@ public interface FlightPlanService {
      * @return
      */
     public int getCountByChoose(int pageSize,Date startDate,Date endDate);
+
+    /**
+     * 根据主键查询信息
+     * @param id
+     * @return
+     */
+    public FlightPlan getFlightPlanById(int id);
+
+    /**
+     * 根据主键删除信息
+     * @param id
+     * @return
+     */
+    public int deleteFlightPlanById(String id);
+
+    /**
+     * 添加飞行信息
+     * @param flightPlan
+     * @return
+     */
+    public int addFlightPlan(FlightPlan flightPlan);
+
+    /**
+     * 修改飞行计划信息
+     * @param flightPlan
+     * @return
+     */
+    public int updateFlightPlanById(FlightPlan flightPlan);
 }
