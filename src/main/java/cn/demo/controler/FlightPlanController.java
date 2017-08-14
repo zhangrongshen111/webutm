@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -37,10 +38,16 @@ public class FlightPlanController {
      * @return
      */
     @RequestMapping("/show")
-    public String show(Model model,HttpServletRequest request) throws ParseException {
-       Map<String,Object> map=getFlightPlan(model,request);
+    public String show(Model model, HttpServletRequest request, HttpSession session) throws ParseException {
+        String loginName=(String) session.getAttribute("loginName");
+        if(loginName==null){
+            return "login";
+        }else{
+        }
+        Map<String,Object> map=getFlightPlan(model,request);
         model.addAttribute("map",map);
         return "flightPlan";
+
     }
 
     /**
@@ -52,7 +59,6 @@ public class FlightPlanController {
     public JSON showAjax(Model model, HttpServletRequest request) throws ParseException {
         Map<String,Object> map=getFlightPlan(model,request);
         JSONObject json=JSONObject.fromObject(map);
-        System.out.println("转成json了===================");
         return json;
     }
 
@@ -67,13 +73,13 @@ public class FlightPlanController {
          int countPage;//总页码数
          Date startDate=null;
          Date endDate=null;
+
          //当前页码
          String pageNo=request.getParameter("curPage");
          if (pageNo==null||pageNo==""){
              curPage=1;
          }else{
              curPage=Integer.parseInt(pageNo);
-             System.out.println(" curPage="+curPage+"==================");
          }
         //开始时间
         String startTime=request.getParameter("startDate")==null?"":request.getParameter("startDate");
@@ -89,15 +95,11 @@ public class FlightPlanController {
         if(endTime!=""){
              endDate=sdf.parse(endTime);
         }
-        System.out.println("startTime:"+startTime);
-        System.out.println("endTime:"+endTime);
-        System.out.println("startDate:"+startDate);
-        System.out.println("endDate:"+endDate);
         Map<String,Object> map=new HashMap<String, Object>();
          countPage=flightPlanService.getCountByChoose(pageSize,startDate,endDate);//总页码数
          countNumber=(curPage-1)*pageSize;//获取数据的起始位置
          List<FlightPlan> fpList=flightPlanService.getAllByChoose(countNumber,pageSize,startDate,endDate);
-        System.out.println(fpList.size()+"条数据===================");
+
          //回传的参数
         map.put("fpList",fpList);
         map.put("curPage",curPage);

@@ -1,7 +1,6 @@
 package cn.demo.test;
 
 import cn.demo.dao.UserDao;
-import cn.demo.model.Account;
 import cn.demo.model.User;
 import cn.demo.service.UserService;
 import org.apache.ibatis.io.Resources;

@@ -8,43 +8,67 @@
 a{
     text-decoration:none;
 }
-
-#main {
-    background: url("../image/blur-bg.jpg") center center no-repeat;
+body {
+    background: url("../image/blur-bg.jpg") center center repeat;
     background-size:cover;
-    width: 100%;
-    height:542px;
-    overflow:hidden;
-    color:#fff;
+    font-family: "Arial";
+    color: #FFFFFF;
+    font-size: 16px;
+    overflow: hidden;
 }
-
-.loginContent{
-    width:540px;
-    height:540px;
-    /*border:1px solid blueviolet;*/
-    background:rgba(0,0,0,0.4);
-    border-radius:5px;
-    /*color:#fff;*/
-    padding:32px;
-    box-sizing: border-box;
-    margin:61px auto 0;
+/*返回键样式*/
+i {
+    margin:5px;
 }
-.loginContent h1{
-    letter-spacing: 2px;
-    font-weight:400;
-    margin:30px 0px;
+.wrapper a{
+    color: #ffffff;
+    font-size: 20px;
 }
-.loginContent a{
-    color:#209e91;
-    font-size:18px;
-    margin-bottom:30px;
-    display:inline-block;
-    transition:all .7s ease;
+/*标题样式*/
+.logo {
+    text-align: center;
+    padding-bottom: 10px;
+    margin: 30px auto 0px;
+    width: 360px;
 }
+/*登陆外边框大屏样式*/
+.loginContent {
+    padding-bottom: 20px;
+    width: 540px;
+    border-radius: 4px 4px 4px 4px;
+    background: rgba(0,0,0,0.4);
+}
+/*忘记密码，注册a标签样式*/
+.loginContent a {
+    color: #209e91;
+    font-size: 18px;
+    margin-bottom: 30px;
+    display: inline-block;
+    transition: all .7s ease;
+}
+/*输入框悬浮样式*/
 .loginContent a:hover{
     color:#16807b;
 }
-.loginContent .inputBox{
+.loginContent .inputBox:focus{
+    border-color:#16807b;
+}
+/*用户名和密码字体样式*/
+.title {
+    LINE-HEIGHT: 20px;
+    PADDING-LEFT: 25px;
+    WIDTH: 3rem;
+    DISPLAY: block;
+    FLOAT: left;
+    HEIGHT: 20px;
+    OVERFLOW: hidden;
+    PADDING-TOP: 15px;
+    text-align: right;
+    padding-right: 5px;
+    margin-right: 15px;
+}
+/*input输入框大屏样式*/
+.inputBox {
     width:400px;
     height:35px;
     background-color:rgba(0,0,0,0.2);
@@ -56,55 +80,107 @@ a{
     text-indent:15px;
     transition:all .5s ease;
 }
-.loginContent .inputBox:focus{
-    border-color:#16807b;
+.loginContent table tr {
+    height: 50px;
+    line-height: 50px;
 }
-.loginContent table tr{
-   height:50px;
-    line-height:50px;
-}
-.loginContent .title{
-    text-align:right;
-    padding-right:15px;
-    /*margin-right:15px;*/
-}
-.loginContent .submit{
-    background:transparent;
-    border:1px solid #cbcbcb;
-    border-radius:6px;
-    outline:none;
+/*登录按钮样式*/
+.loginContent .submit {
+    background: transparent;
+    border: 1px solid #cbcbcb;
+    border-radius: 6px;
+    outline: none;
     letter-spacing: 5px;
-    font-size:18px;
-    height:35px;
-    padding:5px 20px;
-    color:#fff;
-    transition:all .5s ease;
+    font-size: 18px;
+    height: 35px;
+    padding: 5px 20px;
+    color: #fff;
+    transition: all .5s ease;
+    float: left;
+    margin-left: 94px;
+    margin-top: 10px;
 }
+/*忘记密码*/
+.forgot {
+    float:right;
+}
+/*登录悬浮样式*/
 .loginContent .submit:hover{
-    transform:scale(1.1);
+    transform:scale(1);
     background:rgba(0,0,0,0.3);
 }
-.loginContent .forgot{
-    margin-left:50px;
-}
+/*如翼信息技术*/
 .loginContent .gs-name{
     letter-spacing: 3px;
     color:#cbcbcb;
 }
+/*线条样式*/
 .loginContent .gs-name p{
     display:inline-block;
     width:35%;
-    /*height:1px;*/
     border:1px solid #cbcbcb;
     vertical-align:middle;
 }
+/*logo样式*/
 .loginContent .gs-logo{
     display:inline-block;
     margin-top:20px;
 }
-@media (max-width:768px) {
-    .loginContent{
-        display:flex;
-        justify-content: center;
+
+
+/****************************手机700显示是样式**************************************/
+@media (max-width:700px){
+    .logo {
+        WIDTH: 247px;
+    }
+    /*登陆外边框小屏样式*/
+    .loginContent {
+        PADDING-LEFT: 20px;
+        WIDTH: 247px;
+        PADDING-RIGHT: 20px;
+    }
+    /*input输入框小屏样式*/
+    .inputBox {
+        width:174px;
+    }
+    .loginContent .gs-name p{
+        width:20%;
+    }
+}
+
+
+/**************************手机414显示是样式**************************************/
+@media (max-width:699px){
+    h1 {
+        font-size: 20px;
+    }
+    /*用户名和密码字体样式*/
+    .title {
+        margin-right: 10px;
+        padding-left: 0px;
+    }
+    /*input输入框小屏样式*/
+    .inputBox {
+        width:174px;
+        height:30px;
+        font-size:16px;
+    }
+    .loginContent .submit {
+        font-size: 16px;
+        height: 30px;
+        padding: 0px 10px;
+        margin-left: 67px;
+    }
+    /*忘记密码，注册a标签样式*/
+    .loginContent a {
+        PADDING-TOP: 1px;
+        color: #209e91;
+        font-size: 16px;
+        margin-bottom: 30px;
+        display: inline-block;
+        transition: all .7s ease;
+    }
+    .loginContent .gs-name p{
+        width:20%;
     }
 }

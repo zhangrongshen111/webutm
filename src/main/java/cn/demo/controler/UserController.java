@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.List;
 
 /**
  * Created by HDPC on 2017/7/27.
@@ -25,11 +24,14 @@ public class UserController {
 
         User user=userService.login(loginName,pwd);
         if(user==null){
+            System.out.println("user==null===================");
             request.setAttribute("message","账号或密码错误！请重新输入！！！");
-            return "index";
+            return "login";
         }else{
-            session.setAttribute("userId",user.getId());
-            return "/flightPlan/show";
+            session.setAttribute("loginName",user.getLoginName());
+            //设置失效时间
+            System.out.println("user!=null=================");
+            return "redirect:/flightPlan/show";
         }
 
     }

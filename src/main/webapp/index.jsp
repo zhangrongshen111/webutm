@@ -1,172 +1,51 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: HDPC
+  Date: 2017/8/10
+  Time: 16:48
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
-<body>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/css/share.css"/>
-    <link rel="stylesheet" href="/css/nav.css"/>
-    <%--<script type="text/javascript" src="js/menu.js"></script>--%>
+    <meta name="description" content="A sidebar menu as seen on the Google Nexus 7 website" />
+    <meta name="keywords" content="google nexus 7 menu, css transitions, sidebar, side menu, slide out menu" />
+    <meta name="author" content="Codrops" />
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.2.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" href="css/Table.css"/>
 </head>
 <body>
-    <div id="nav">
-        <div class="nav-left inlineBlock">
-            <a href="#"><span>Lucky</span>Wing</a>
-            <span class="glyphicon glyphicon-tasks inlineBlock navIcon"></span>
-            <div class="search inlineBlock">
-                <span class="glyphicon glyphicon-search"></span>
-                <input type="text" placeholder="搜索"/>
-            </div>
-        </div>
-        <div class="nav-right inlineBlock textCenter">
-            <p class="inlineBlock">有问题？<a href="#">联系我们</a></p>
-            <div class="bell inlineBlock">
-                <span class="number">5</span>
-                <span class="glyphicon glyphicon-bell"></span>
-            </div>
-            <div class="envelope inlineBlock">
-                <span class="number">5</span>
-                <span class="glyphicon glyphicon-envelope"></span>
-            </div>
-            <div class="personalImage">
-                <img src="/image/01.png" alt=""  width="100%" height="100%"/>
-            </div>
+<div class="wrapper">
+
+    <%--<%@include file="WEB-INF/jsp/nav.jsp"%>--%>
+    <jsp:include page="WEB-INF/jsp/nav.jsp"/>
+    <div class="content-wrap " >
+        <div class="content"id="change">
+            <section class="content-header">
+                <h3>
+                    首页
+                    <small>首页| <a href="javascript :;" onClick="javascript :history.back(-1);">向前一页</a></small>
+                </h3>
+            </section>
+            <sectionn class="content container-fluid">
+                <img src="image/1.png" alt=""  width="100%" height="100%"/>
+            </sectionn>
         </div>
     </div>
-    <div id="menuList">
-
-        <ul class="topMenu">
-            <div class="targetIcon"></div>
-            <li class="topItem">
-                <a href="#">
-                    <span class="listIcon glyphicon glyphicon-home"></span>
-                    <span>个人首页</span>
-                    <span class="bottomIcon glyphicon glyphicon-chevron-down"></span>
-                </a>
-                <ul class="downMenu">
-                    <li><a href="${pageContext.request.contextPath}/flightPlan/show">飞行记录</a></li>
-                    <li><a href="login.jsp">用户登录</a></li>
-                    <li><a href="#">信誉积分</a></li>
-                    <li>信誉积分</li>
-                </ul>
-            </li>
-            <li class="topItem">
-                <a href="#">
-                    <span class="listIcon glyphicon glyphicon-plane"></span>
-                    <span>飞行计划</span>
-                    <span class="bottomIcon glyphicon glyphicon-chevron-down"></span>
-                </a>
-                <ul class="downMenu">
-                    <li class="downItem">我的任务</li>
-                    <li>我的飞机</li>
-                    <li>我的余额</li>
-                    <li>信誉积分</li>
-                </ul>
-            </li>
-            <li class="topItem">
-                <a href="#">
-                    <span class="listIcon glyphicon glyphicon-plane"></span>
-                    <span>无人飞机</span>
-                    <span class="bottomIcon glyphicon glyphicon-chevron-down"></span>
-                </a>
-                <ul class="downMenu">
-                    <li class="downItem">我的任务</li>
-                    <li>我的飞机</li>
-                    <li>我的余额</li>
-                    <li>信誉积分</li>
-                </ul>
-            </li>
-            <li class="topItem">
-                <a href="#">
-                    <span class="listIcon glyphicon glyphicon-plane"></span>
-                    <span>空域信息</span>
-                    <span class="bottomIcon glyphicon glyphicon-chevron-down"></span>
-                </a>
-                <ul class="downMenu">
-                    <li class="downItem">我的任务</li>
-                    <li>我的飞机</li>
-                    <li>我的余额</li>
-                    <li>信誉积分</li>
-                </ul>
-            </li>
-            <li class="topItem">
-                <a href="#">
-                    <span class="listIcon glyphicon glyphicon-plane"></span>
-                    <span>交通规章</span>
-                    <span class="bottomIcon glyphicon glyphicon-chevron-down"></span>
-                </a>
-                <ul class="downMenu">
-                    <li class="downItem">我的任务</li>
-                    <li>我的飞机</li>
-                    <li>我的余额</li>
-                    <li>信誉积分</li>
-                </ul>
-            </li>
-            <li class="topItem">
-                <a href="#">
-                    <span class="listIcon glyphicon glyphicon-plane"></span>
-                    <span>飞行情报</span>
-                    <span class="bottomIcon glyphicon glyphicon-chevron-down"></span>
-                </a>
-                <ul class="downMenu">
-                    <li class="downItem">我的任务</li>
-                    <li>我的飞机</li>
-                    <li>我的余额</li>
-                    <li>信誉积分</li>
-                </ul>
-            </li>
-            <li class="topItem">
-                <a href="#">
-                    <span class="listIcon glyphicon glyphicon-plane"></span>
-                    <span>航空情报</span>
-                    <span class="bottomIcon glyphicon glyphicon-chevron-down"></span>
-                </a>
-                <ul class="downMenu">
-                    <li class="downItem">我的任务</li>
-                    <li>我的飞机</li>
-                    <li>我的余额</li>
-                    <li>信誉积分</li>
-                </ul>
-            </li>
-            <li class="topItem">
-                <a href="#">
-                    <span class="listIcon glyphicon glyphicon-plane"></span>
-                    <span>气象情报</span>
-                    <span class="bottomIcon glyphicon glyphicon-chevron-down"></span>
-                </a>
-                <ul class="downMenu">
-                    <li class="downItem">我的任务</li>
-                    <li>我的飞机</li>
-                    <li>我的余额</li>
-                    <li>信誉积分</li>
-                </ul>
-            </li>
-            <li class="topItem">
-                <a href="#">
-                    <span class="listIcon glyphicon glyphicon-plane"></span>
-                    <span>告警救援</span>
-                    <span class="bottomIcon glyphicon glyphicon-chevron-down"></span>
-                </a>
-                <ul class="downMenu">
-                    <li class="downItem">我的任务</li>
-                    <li>我的飞机</li>
-                    <li>我的余额</li>
-                    <li>信誉积分</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <div class="content">
-        <img src="/image/01.png" alt="">
-    </div>
-</body>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="/js/flightPlan.js"></script>
-
-</html>
+</div>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/classie.js"></script>
+<script src="js/gnmenu.js"></script>
+<script src="js/menu.js"></script>
+<script>
+    new gnMenu( document.getElementById( 'gn-menu' ) );
+</script>
 </body>
 </html>

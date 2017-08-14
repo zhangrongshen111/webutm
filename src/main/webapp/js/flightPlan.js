@@ -11,45 +11,44 @@
 //
 //菜单toggle切换
 
-    $('.topMenu .topItem').toggle(function () {
-        alert('zhixingle');
-        $(this).find('.downMenu').slideDown(300);
-        //设置一个值来判断是展开还是关闭，展开在鼠标悬浮的时候获取子li的数量，再来设置焦点条的top值
-    },function () {
-        $(this).find('.downMenu').slideUp(300);
-    });
-
-//去掉点击后的下划线
-    $('a').live('click',function(){
-        $('a').css('text-decoration','none');
-    });
-
-//悬浮换色
-
-    $('#menuList .topMenu .topItem .topItemIcon').hover(function (){
-        $(this).css('color','#209e91');
-    },function () {
-        $(this).css('color','#fff');
-    })
-
-
-//焦点条跟随光标移动
-    $('.topMenu >li').hover(function(event){
-//        var width=$(this).css('width');
-//        alert(width);
-        var i= $(this).index();
-        var sum=(i-1)*43;//可以放到else中
-        $('.targetIcon').css({'transition':'top 0.4s ease','top':sum});
-
-    });
-//二级菜单点击事件
-    $('.downMenu li').click(function(event){
-        event.stopPropagation();//阻止事件冒泡
-        $('.downMenu li').css('background','transparent');
-        $(this).css({'background':'#209e91','color':'#fff'});
-    });
-
-
+//     $('.topMenu .topItem').toggle(function () {
+//         alert('zhixingle');
+//         $(this).find('.downMenu').slideDown(300);
+//         //设置一个值来判断是展开还是关闭，展开在鼠标悬浮的时候获取子li的数量，再来设置焦点条的top值
+//     },function () {
+//         $(this).find('.downMenu').slideUp(300);
+//     });
+//
+// //去掉点击后的下划线
+//     $('a').live('click',function(){
+//         $('a').css('text-decoration','none');
+//     });
+//
+// //悬浮换色
+//
+//     $('#menuList .topMenu .topItem .topItemIcon').hover(function (){
+//         $(this).css('color','#209e91');
+//     },function () {
+//         $(this).css('color','#fff');
+//     })
+//
+//
+// //焦点条跟随光标移动
+//     $('.topMenu >li').hover(function(event){
+// //        var width=$(this).css('width');
+// //        alert(width);
+//         var i= $(this).index();
+//         var sum=(i-1)*43;//可以放到else中
+//         $('.targetIcon').css({'transition':'top 0.4s ease','top':sum});
+//
+//     });
+// //二级菜单点击事件
+//     $('.downMenu li').click(function(event){
+//         event.stopPropagation();//阻止事件冒泡
+//         $('.downMenu li').css('background','transparent');
+//         $(this).css({'background':'#209e91','color':'#fff'});
+//     });
+//
 
 //点击查询按钮
 $('#search-btn2').click(function(){
@@ -103,8 +102,8 @@ function option(){
 //        获取当前页和总页数
     var page=parseInt($('#curPage').html());
     var count=parseInt($('#countPage').html());
-    alert("count"+count);
-    alert("page"+page);
+    // alert("count"+count);
+    // alert("page"+page);
     var option="";
     for(var i=1;i<=count;i++){
         if(i==page){
@@ -122,14 +121,14 @@ function ajaxShow (num) {
     var startTime=$("#startDate").val();
     var endTime=$("#endDate").val();
     if(startTime!=""&&endTime!=""){
-        alert(startTime);
-        alert(endTime);
+        // alert(startTime);
+        // alert(endTime);
         if(new Date(startTime)>=new Date(endTime)){
             alert("开始日期不能大于结束日期");
             return;
         }
     }
-    alert('页码='+num);
+    // alert('页码='+num);
     $.ajax({
         data:{curPage:num,startDate:startTime,endDate:endTime},
         url:"/flightPlan/ajax",
@@ -144,6 +143,7 @@ function ajaxShow (num) {
             var text=""
             for(var i=0;i<fpList.length;i++){
                 text+="<tr>";
+                text+="<td><input type='checkbox' name='checkBox' id='"+fpList[i].fpId+"'/></td>";
                 text+="<td>"+fpList[i].fpId+"</td>";
                 text+="<td>"+new Date(parseInt(fpList[i].startDate.time)).toLocaleDateString()+"</td>";
                 text+="<td>"+new Date(parseInt(fpList[i].endDate.time)).toLocaleDateString()+"</td>";
@@ -153,15 +153,54 @@ function ajaxShow (num) {
                 text+="<td>"+fpList[i].description+"</td>";
                 text+="<td>"+new Date(parseInt(fpList[i].applyDate.time)).toLocaleDateString()+"</td>";
                 text+="<td>"+fpList[i].uavId+"</td>";
+                text+=" <td>&nbsp;<i class='fa fa-trash' aria-hidden='true'></i>" +
+                    "&nbsp;<i class='fa fa-file-text-o' aria-hidden='true'></i>" +
+                    "&nbsp;<i class='fa fa-plus-square' aria-hidden='true'></i>" +
+                    "</td>";
                 text+="</tr>";
 //                    console.log(fpList[i].startDate.time);
             }
             $('.tbody-white').html(text);
             option();
-            alert("成功了");
         },
         error:function () {
-            alert("失败了");
+            alert("加载数据出错了！！！！");
         }
     });
 };
+
+
+//全选按钮点击事件
+$('#checkBoxAll').click(function () {
+    //复选框与全选框状态一致
+    $("[name='checkBox']").prop("checked",$(this).prop("checked"));
+});
+
+//复选框点击事件
+$("[name='checkBox']").click(function () {
+    var count=$("[name='checkBox']").length;
+    var size=$("[name='checkBox']:checked").length;
+    if(size==count){
+        $("#checkBoxAll").prop("checked",true);
+    }else{
+        $("#checkBoxAll").prop("checked",false);
+    }
+    // alert(count);
+});
+
+//删除选中项点击事件
+$("#delSelect").click(function () {
+    var size=$("[name='checkBox']:checked").length;
+    if(size==0){
+        alert("请先选中要删除的记录");
+    }else{
+       if(confirm("确定要删除选中的记录吗？")){
+           var id="";
+           $("[name='checkBox']:checked").each(function () {
+               id+=$(this).prop("id")+",";
+           });
+           id=id.substring(0,id.length-1);
+           alert("删除id为"+id+"的记录！！！");
+       }
+    }
+});

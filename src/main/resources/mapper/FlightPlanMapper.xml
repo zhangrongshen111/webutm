@@ -41,10 +41,10 @@
             and ApplyDate between #{startDate} and #{endDate}
         </if>
     </select>
-    <insert id="addFlightPlan" parameterType="cn.demo.model.FlightPlan">
-        INSERT INTO flightplan(startDate,endDate,startPoint,endPoint,flightHeight,description,ApplyDate,UvaId,userId)
-        VALUES (#{flightPlan.startDate},#{})
-    </insert>
+    <!--<insert id="addFlightPlan" parameterType="cn.demo.model.FlightPlan">-->
+        <!--INSERT INTO flightplan(startDate,endDate,startPoint,endPoint,flightHeight,description,ApplyDate,UvaId,userId)-->
+        <!--VALUES (#{flightPlan.startDate},#{})-->
+    <!--</insert>-->
 
 
 

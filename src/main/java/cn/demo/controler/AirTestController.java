@@ -32,13 +32,6 @@ public class AirTestController {
     @RequestMapping(value ="/json",method= RequestMethod.GET)
     public List<AirTest> showMapView(){
         List<AirTest> findAll= airTestService.findAll();
-        AirTest airt = new AirTest();
-        List<AirTest> aittest = new ArrayList<AirTest>();
-        for (int i =0;i<findAll.size();i++){
-            airt.setName(findAll.get(i).getName());
-            airt.setLongitude(findAll.get(i).getLongitude());
-            airt.setLatitude(findAll.get(i).getLatitude());
-        }
         return findAll;
     }
 }

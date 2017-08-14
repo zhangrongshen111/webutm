@@ -24,9 +24,7 @@
           <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
           <element id="library" level="project" name="Maven: org.springframework:spring-context-support:4.1.7.RELEASE" />
           <element id="library" level="project" name="Maven: org.freemarker:freemarker:2.3.20" />
-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.5.4" />
-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.5.0" />
-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.5.4" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.8.8" />
           <element id="library" level="project" name="Maven: javax.servlet:javax.servlet-api:3.1.0" />
           <element id="library" level="project" name="Maven: org.springframework:spring-core:4.1.7.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.1.7.RELEASE" />
@@ -40,6 +38,10 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.1.7.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-test:4.1.7.RELEASE" />
           <element id="library" level="project" name="Maven: joda-time:joda-time:2.9.4" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.8.8" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.8.8" />
+          <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.13" />
+          <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" />
         </element>
       </element>
       <element id="directory" name="META-INF">
