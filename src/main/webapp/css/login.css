@@ -28,8 +28,8 @@ i {
 .logo {
     text-align: center;
     padding-bottom: 10px;
-    margin: 30px auto 0px;
-    width: 360px;
+    margin: 40px auto 0px;
+    width: 100%;
 }
 /*登陆外边框大屏样式*/
 .loginContent {
@@ -57,11 +57,9 @@ i {
 .title {
     LINE-HEIGHT: 20px;
     PADDING-LEFT: 25px;
-    WIDTH: 3rem;
     DISPLAY: block;
     FLOAT: left;
     HEIGHT: 20px;
-    OVERFLOW: hidden;
     PADDING-TOP: 15px;
     text-align: right;
     padding-right: 5px;
@@ -82,7 +80,6 @@ i {
 }
 .loginContent table tr {
     height: 50px;
-    line-height: 50px;
 }
 /*登录按钮样式*/
 .loginContent .submit {
@@ -113,6 +110,7 @@ i {
 .loginContent .gs-name{
     letter-spacing: 3px;
     color:#cbcbcb;
+    margin-top:30px;
 }
 /*线条样式*/
 .loginContent .gs-name p{

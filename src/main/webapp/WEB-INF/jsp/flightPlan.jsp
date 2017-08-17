@@ -8,16 +8,19 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>飞行计划列表</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.2.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="/css/Table.css"/>
-    <link rel="stylesheet" type="text/css" href="/css/index.css">
-
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/fonts/font-awesome-4.2.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/normalize.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/nav.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/menu_elastic.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/Table.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/index.css">
 </head>
 <body>
 
@@ -46,13 +49,12 @@
                     </div>
                     <div class="panel-body">
                         <div class="table-responsive box-default form-inline no-footer scoller">
-                            <%--<form action="/demo/demo_form.asp">--%>
                                 &nbsp;&nbsp;开始时间&nbsp;&nbsp;
                                 <input type="text" id="startDate" class="form-control input-sm form-inline" onfocus="WdatePicker()" readonly="readonly">
                                 &nbsp;&nbsp;截止时间&nbsp;&nbsp;
                                 <input type="text" id="endDate" class="form-control input-sm" onfocus="WdatePicker()" readonly="readonly">
                                 <input type="button" name="search" id="search-btn2" class="btn btn-flat btn-sm" value="查询">
-                            <%--</form>--%>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/flightPlan/toAdd" style="color:red;font-weight:bold;">添加飞行计划</a>
                             <div class="table-responsive box-default form-inline no-footer">
                                 <table class="table table-hover table-bordered">
                                     <thead class="thead-inverse table-bordered">
@@ -73,7 +75,7 @@
                                     <tbody class="tbody-white">
                                     <c:forEach items="${map['fpList']}" var="list">
                                         <tr class="gradeA even">
-                                            <td><input type="checkbox" name="checkBox"></td>
+                                            <td for="cbx"><input type="checkbox" name="checkBox" id="cbx"></td>
                                             <td>${list.fpId}</td>
                                             <td><fmt:formatDate value="${list.startDate}" pattern="yyyy-MM-dd"/></td>
                                             <td><fmt:formatDate value="${list.endDate}" pattern="yyyy-MM-dd"/></td>
@@ -101,8 +103,8 @@
                             第<span id="curPage">${map["curPage"]}</span>页/共<span id="countPage">${map["countPage"]}</span>页
 
                             <a href="#" id="firstPage">首页</a>
-                            <a href="#" id="prevPage">上页</a>
-                            <a href="#" id="nextPage">下页</a>
+                            <a id="prevPage">上页</a>
+                            <a id="nextPage">下页</a>
                             <a href="#" id="lastPage">尾页</a>
                             <select name="" id="selectList"></select>
 
@@ -119,13 +121,16 @@
     </div>
 </div>
 
-<script type="text/javascript" src="/js/bootstrap.min.js"></script>
-<script src="/js/jquery-1.8.3.min.js"></script>
-<script src="/js/page.js"></script>
-<script src="/js/classie.js"></script>
-<script src="/toggleMenu.js3.js"></script>
-<script type="text/javascript" src="/js/My97DatePicker/WdatePicker.js"></script>
-<script type="text/javascript" src="/js/flightPlan.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery-1.8.3.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/classie.js"></script>
+<script src="${pageContext.request.contextPath}/js/snap.svg-min.js"></script>
+<script src="${pageContext.request.contextPath}/js/toggleMenu.js"></script>
+<script src="${pageContext.request.contextPath}/js/menu.js"></script>
+<%--<script src="${pageContext.request.contextPath}/js/page.js"></script>--%>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/flightPlan.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/nav.js"></script>
 <script>
     // Copyright 2014-2015 Twitter, Inc.
     // Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -138,6 +143,16 @@
         )
         document.querySelector('head').appendChild(msViewportStyle)
     }
+</script>
+<script>
+$(document).ready(function(){
+
+$('.menu-button').toggle(function(){
+$('.content').css('width','85%');
+},function(){
+$('.content').css('width','100%');
+});
+});
 </script>
 </body>
 </html>

@@ -1,18 +1,19 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>天钦爱翼</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.2.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="/css/normalize.css" />
-    <link rel="stylesheet" href="/css/nav.css"/>
-    <link rel="stylesheet" type="text/css" href="/css/menu_elastic.css" />
-    <link rel="stylesheet" type="text/css" href="/css/index.css" />
-    <script src="/js/snap.svg-min.js"></script>
+    <%--<title>天钦爱翼</title>--%>
+    <%--<link rel="stylesheet" href="/css/bootstrap.min.css"/>--%>
+    <%--<link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.2.0/css/font-awesome.min.css" />--%>
+    <%--<link rel="stylesheet" type="text/css" href="/css/normalize.css" />--%>
+    <%--<link rel="stylesheet" href="/css/nav.css"/>--%>
+    <%--<link rel="stylesheet" type="text/css" href="/css/menu_elastic.css" />--%>
+    <%--<link rel="stylesheet" type="text/css" href="/css/index.css" />--%>
+    <%--<script src="/js/snap.svg-min.js"></script>--%>
     <!--[if IE]>
     <!--<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>-->
     <![endif]-->
@@ -38,7 +39,7 @@
                 <span class="glyphicon glyphicon-envelope"></span>
             </div>
             <div class="personalImage">
-                <a href="login.html"> <img src="../../image/01.png" alt="" width="100%" height="100%"/></a>
+                <a href="login.html"> <img src="/image/01.png" alt="" width="100%" height="100%"/></a>
             </div>
         </div>
     </div>
@@ -56,7 +57,12 @@
                         <ul class="downMenu">
                             <%--onclick="test()"--%>
                             <li class="downItem"><a href="/index.jsp" >我的首页</a></li>
-                            <li class="downItem"><a href="${pageContext.request.contextPath}/flightPlan/show" class="">飞行计划</a></li>
+                            <li class="downItem">
+                                <form action="${pageContext.request.contextPath}/flightPlan/show" method="post">
+                                    <input type="submit" value="飞行计划">
+                                </form>
+                                    <%--<a href="${pageContext.request.contextPath}/flightPlan/show" class="flightPlan">飞行计划</a>--%>
+                            </li>
                             <li class="downItem"><a href="${pageContext.request.contextPath}/space/showMap">空域管理</a></li>
                             <li class="downItem"><a href="#">信誉积分</a></li>
                         </ul>
@@ -179,40 +185,20 @@
 
 <%--</div>--%>
 <!-- /container -->
-<script type="text/javascript" src="http://106.14.27.49/js/bootstrap.min.js"></script>
-<script src="/js/jquery-1.8.3.min.js"></script>
-<script src="/js/classie.js" type="text/javascript" language="javascript"></script>
-<script src="/js/toggleMenu.js" type="text/javascript" language="javascript"></script>
-<script src="/js/menu.js" type="text/javascript" language="javascript"></script>
-<%--<script src="/js/iframe.js" type="text/javascript" language="javascript"></script>--%>
-<script type="text/javascript" language="javascript">
-//    function test() {
-//        var s=$('#iframepage').attr('src','/WEB-INF/jsp/homePage.jsp');
-//    }
-//
-//    // Copyright 2014-2015 Twitter, Inc.
-//    // Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
-//    if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
-//        var msViewportStyle = document.createElement('style')
-//        msViewportStyle.appendChild(
-//            document.createTextNode(
-//                '@-ms-viewport{width:auto!important}'
-//            )
-//        )
-//        document.querySelector('head').appendChild(msViewportStyle)
-//    }
-</script>
+<%--<script type="text/javascript" src="/js/bootstrap.min.js"></script>--%>
+<%--<script src="/js/jquery-1.8.3.min.js"></script>--%>
+<%--<script src="/js/classie.js" type="text/javascript" language="javascript"></script>--%>
+<%--<script src="/js/toggleMenu.js" type="text/javascript" language="javascript"></script>--%>
+<%--<script src="/js/menu.js" type="text/javascript" language="javascript"></script>--%>
+<%--<script>--%>
+    <%--$(document).ready(function(){--%>
 
-<script src="/jquery/jquery-3.2.1.min.js"></script>
-<script>
-    $(document).ready(function(){
-
-        $('.menu-button').toggle(function(){
-            $('.content').css('width','85%');
-        },function(){
-            $('.content').css('width','100%');
-        });
-    });
-</script>
+        <%--$('.menu-button').toggle(function(){--%>
+            <%--$('.content').css('width','85%');--%>
+        <%--},function(){--%>
+            <%--$('.content').css('width','100%');--%>
+        <%--});--%>
+    <%--});--%>
+<%--</script>--%>
 </body>
 </html>

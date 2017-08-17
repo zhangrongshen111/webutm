@@ -5,11 +5,11 @@ import cn.demo.service.FlightPlanService;
 import net.sf.json.JSON;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -24,7 +24,7 @@ import java.util.Map;
  * Created by HDPC on 2017/7/27.
  */
 @Controller
-@RequestMapping("/flightPlan")
+@RequestMapping(value="/flightPlan",method = RequestMethod.POST)
 public class FlightPlanController {
     @Autowired
     private FlightPlanService flightPlanService;
@@ -37,16 +37,18 @@ public class FlightPlanController {
      * @param request
      * @return
      */
-    @RequestMapping("/show")
+    @RequestMapping(value = "/show",method = RequestMethod.POST)
     public String show(Model model, HttpServletRequest request, HttpSession session) throws ParseException {
         String loginName=(String) session.getAttribute("loginName");
         if(loginName==null){
+            System.out.println("进入show，失败");
             return "login";
         }else{
+            System.out.println("进入show,chenggong");
+            Map<String,Object> map=getFlightPlan(model,request);
+            model.addAttribute("map",map);
+            return "flightPlan";
         }
-        Map<String,Object> map=getFlightPlan(model,request);
-        model.addAttribute("map",map);
-        return "flightPlan";
 
     }
 
@@ -55,7 +57,7 @@ public class FlightPlanController {
      * @return
      */
     @ResponseBody
-    @RequestMapping("/ajax")
+    @RequestMapping(value="/ajax",method = RequestMethod.POST)
     public JSON showAjax(Model model, HttpServletRequest request) throws ParseException {
         Map<String,Object> map=getFlightPlan(model,request);
         JSONObject json=JSONObject.fromObject(map);
@@ -156,14 +158,43 @@ public class FlightPlanController {
         }
     }
 
-    public String addFlightPlan(HttpServletRequest request,@RequestParam FlightPlan flightPlan){
+    @InitBinder
+    public void initBinder(WebDataBinder binder) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        dateFormat.setLenient(false);
+        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
+    }
+        /**
+         *  添加飞行计划信息
+         * @param request
+         * @param flightPlan
+         * @return
+         */
+    @RequestMapping("/addFlightPlan")
+    public String addFlightPlan(Model model,HttpServletRequest request,HttpSession session, FlightPlan flightPlan) throws ParseException {
+        System.out.println(flightPlan.getStartDate()+"======================");
+        System.out.println(flightPlan.getEndDate()+"======================");
+        System.out.println(flightPlan.getStartPoint()+"======================");
+        System.out.println(flightPlan.getEndPoint()+"======================");
+        System.out.println(flightPlan.getApplyDate()+"======================");
+        System.out.println(flightPlan.getFlightHeight()+"======================");
         int row=flightPlanService.addFlightPlan(flightPlan);
+        System.out.println(row+"========================");
         if(row>0){
             request.setAttribute("message","添加成功！！！");
-            return "addPlan";
+            return "redirect:/flightPlan/show";
         }else{
             request.setAttribute("message","添加失败！！！");
             return "addPlan";
         }
+    }
+
+    /**
+     * 跳转到添加飞行计划页面
+     * @return
+     */
+    @RequestMapping("/toAdd")
+    public String toAdd(){
+        return "addFlightPlan";
     }
 }

@@ -132,7 +132,7 @@ function ajaxShow (num) {
     $.ajax({
         data:{curPage:num,startDate:startTime,endDate:endTime},
         url:"/flightPlan/ajax",
-        methodType:"post",
+        type:"post",
         dataType:"json",
         success:function (result) {
             var fpList=result["fpList"];

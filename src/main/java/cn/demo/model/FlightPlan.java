@@ -18,6 +18,8 @@ public class FlightPlan {
     private String description;//飞行计划描述
     private Date applyDate;//申请时间
     private int uavId;//无人机编号
+    private int userId;//用户编号
+
 
     /**
      * 无参构造
@@ -36,7 +38,7 @@ public class FlightPlan {
      * @param applyDate
      * @param uavId
      */
-    public FlightPlan(int fpId, Date startDate, Date endDate, String startPoint, String endPoint, int flightHeight, String description, Date applyDate, int uavId) {
+    public FlightPlan(int fpId, Date startDate, Date endDate, String startPoint, String endPoint, int flightHeight, String description, Date applyDate, int uavId,int userId) {
         this.fpId = fpId;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -46,6 +48,7 @@ public class FlightPlan {
         this.description = description;
         this.applyDate = applyDate;
         this.uavId = uavId;
+        this.userId=userId;
     }
 
     /**
@@ -122,5 +125,13 @@ public class FlightPlan {
 
     public void setUavId(int uavId) {
         this.uavId = uavId;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 }

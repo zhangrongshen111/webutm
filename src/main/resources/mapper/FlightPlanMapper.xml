@@ -13,6 +13,7 @@
         <result column="description" property="description"/>
         <result column="ApplyDate" property="applyDate"/>
         <result column="UavId" property="uavId"/>
+        <result column="userId" property="userId"/>
     </resultMap>
     <!--按条件查询全部信息-->
     <select id="getAllByChoose" resultMap="FlightPlanInfo">
@@ -41,10 +42,11 @@
             and ApplyDate between #{startDate} and #{endDate}
         </if>
     </select>
-    <!--<insert id="addFlightPlan" parameterType="cn.demo.model.FlightPlan">-->
-        <!--INSERT INTO flightplan(startDate,endDate,startPoint,endPoint,flightHeight,description,ApplyDate,UvaId,userId)-->
-        <!--VALUES (#{flightPlan.startDate},#{})-->
-    <!--</insert>-->
+    <insert id="addFlightPlan" parameterType="cn.demo.model.FlightPlan">
+        INSERT INTO flightplan(startDate,endDate,startPoint,endPoint,flightHeight,description,ApplyDate,UavId,userId)
+        VALUES (#{flightPlan.startDate},#{flightPlan.endDate},#{flightPlan.startPoint},#{flightPlan.endPoint},
+        #{flightPlan.flightHeight},#{flightPlan.description},#{flightPlan.applyDate},#{flightPlan.uavId},#{flightPlan.userId})
+    </insert>
 
 
 

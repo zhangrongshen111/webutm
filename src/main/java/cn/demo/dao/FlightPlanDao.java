@@ -44,7 +44,7 @@ public interface FlightPlanDao {
      * @param flightPlan
      * @return
      */
-    public int addFlightPlan(@Param("FlightPlan") FlightPlan flightPlan);
+    public int addFlightPlan(@Param("flightPlan") FlightPlan flightPlan);
 
     /**
      * 修改飞行计划信息

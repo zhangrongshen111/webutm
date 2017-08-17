@@ -18,7 +18,8 @@ $(window).resize(function(){
     $(".loginContent").css({
         position: "absolute",
         left: ($(window).width() - $(".loginContent").outerWidth())/2,
-        top: ($(window).height() - $(".loginContent").outerHeight())/2
+        top: ($(window).height() - $(".loginContent").outerHeight())/2,
+        overflow:"hidden"
     });
 });
 
