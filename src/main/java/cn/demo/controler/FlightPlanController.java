@@ -24,7 +24,7 @@ import java.util.Map;
  * Created by HDPC on 2017/7/27.
  */
 @Controller
-@RequestMapping(value="/flightPlan",method = RequestMethod.POST)
+@RequestMapping("/flightPlan")
 public class FlightPlanController {
     @Autowired
     private FlightPlanService flightPlanService;
@@ -37,7 +37,7 @@ public class FlightPlanController {
      * @param request
      * @return
      */
-    @RequestMapping(value = "/show",method = RequestMethod.POST)
+    @RequestMapping(value = "/show",method = RequestMethod.GET)
     public String show(Model model, HttpServletRequest request, HttpSession session) throws ParseException {
         String loginName=(String) session.getAttribute("loginName");
         if(loginName==null){
@@ -57,7 +57,7 @@ public class FlightPlanController {
      * @return
      */
     @ResponseBody
-    @RequestMapping(value="/ajax",method = RequestMethod.POST)
+    @RequestMapping(value="/ajax",method = RequestMethod.GET)
     public JSON showAjax(Model model, HttpServletRequest request) throws ParseException {
         Map<String,Object> map=getFlightPlan(model,request);
         JSONObject json=JSONObject.fromObject(map);
@@ -116,10 +116,10 @@ public class FlightPlanController {
      * 根据主键获取信息并跳转到展示页面
      * @return
      */
-    @RequestMapping("/getFlightPlan")
-    public String getFlightPlanById(HttpServletRequest request){
-        String id=request.getParameter("id");
-        FlightPlan flightPlan=flightPlanService.getFlightPlanById(Integer.parseInt(id));
+    @RequestMapping(value="/getFlightPlan",method=RequestMethod.GET)
+    public String getFlightPlanById(HttpServletRequest request,@RequestParam int id){
+        FlightPlan flightPlan=flightPlanService.getFlightPlanById(id);
+        request.setAttribute("flightPlan",flightPlan);
         return "showPlan";
     }
 
@@ -141,12 +141,23 @@ public class FlightPlanController {
     }
 
     /**
+     * 点击修改后获取数据并展示
+     * @return
+     */
+    @RequestMapping(value = "/updateDetails",method = RequestMethod.GET)
+    public String updateDetails(HttpServletRequest request,@RequestParam int id){
+        FlightPlan flightPlan=flightPlanService.getFlightPlanById(id);
+        request.setAttribute("flightPlan",flightPlan);
+        return "updatePlan";
+    }
+
+    /**
      * 根据主键修改计划信息
      * @param request
      * @param flightPlan
      * @return
      */
-    @RequestMapping("/updateFlightPlan")
+    @RequestMapping(value="/updateFlightPlan",method=RequestMethod.POST)
     public String updateFlightPlanById(HttpServletRequest request, @RequestParam FlightPlan flightPlan){
         int row=flightPlanService.updateFlightPlanById(flightPlan);
         if(row>0){
@@ -158,6 +169,10 @@ public class FlightPlanController {
         }
     }
 
+    /**
+     * 转换日期格式
+     * @param binder
+     */
     @InitBinder
     public void initBinder(WebDataBinder binder) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -170,14 +185,8 @@ public class FlightPlanController {
          * @param flightPlan
          * @return
          */
-    @RequestMapping("/addFlightPlan")
+    @RequestMapping(value = "/addFlightPlan",method=RequestMethod.POST)
     public String addFlightPlan(Model model,HttpServletRequest request,HttpSession session, FlightPlan flightPlan) throws ParseException {
-        System.out.println(flightPlan.getStartDate()+"======================");
-        System.out.println(flightPlan.getEndDate()+"======================");
-        System.out.println(flightPlan.getStartPoint()+"======================");
-        System.out.println(flightPlan.getEndPoint()+"======================");
-        System.out.println(flightPlan.getApplyDate()+"======================");
-        System.out.println(flightPlan.getFlightHeight()+"======================");
         int row=flightPlanService.addFlightPlan(flightPlan);
         System.out.println(row+"========================");
         if(row>0){

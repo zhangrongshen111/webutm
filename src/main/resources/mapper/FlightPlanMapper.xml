@@ -12,12 +12,13 @@
         <result column="flightHeight" property="flightHeight"/>
         <result column="description" property="description"/>
         <result column="ApplyDate" property="applyDate"/>
+        <result column="isDelete" property="isDelete"/>
         <result column="UavId" property="uavId"/>
         <result column="userId" property="userId"/>
     </resultMap>
     <!--按条件查询全部信息-->
     <select id="getAllByChoose" resultMap="FlightPlanInfo">
-        select * from flightplan WHERE 1=1
+        select * from flightplan WHERE isDelete=1
         <if test="startDate!=null and endDate==null">
             and ApplyDate <![CDATA[>=]]> #{startDate}
         </if>
@@ -31,7 +32,7 @@
     </select>
     <!--获取总记录数-->
     <select id="getCountByChoose" resultType="java.lang.Integer">
-        select COUNT(fp_id) from flightplan WHERE 1=1
+        select COUNT(fp_id) from flightplan WHERE isDelete=1
         <if test="startDate!=null and endDate==null">
             and ApplyDate <![CDATA[>=]]> #{startDate}
         </if>
@@ -42,12 +43,20 @@
             and ApplyDate between #{startDate} and #{endDate}
         </if>
     </select>
+    <!--插入飞行计划信息-->
     <insert id="addFlightPlan" parameterType="cn.demo.model.FlightPlan">
         INSERT INTO flightplan(startDate,endDate,startPoint,endPoint,flightHeight,description,ApplyDate,UavId,userId)
         VALUES (#{flightPlan.startDate},#{flightPlan.endDate},#{flightPlan.startPoint},#{flightPlan.endPoint},
         #{flightPlan.flightHeight},#{flightPlan.description},#{flightPlan.applyDate},#{flightPlan.uavId},#{flightPlan.userId})
     </insert>
+    <!--根据主键查询飞行计划信息-->
+    <select id="getFlightPlanById" resultMap="FlightPlanInfo">
+        SELECT  * FROM flightplan WHERE fp_id=#{id}
+    </select>
 
-
-
+    <update id="updateFlightPlanById" parameterType="cn.demo.model.FlightPlan">
+        UPDATE FROM flightplan set startDate=#{flightPlan.startDate},endDate=#{flightPlan.endDate},
+        startPoint=#{flightPlan.startPoint}, endPoint=#{flightPlan.endPoint}, flightHeight=#{flightPlan.flightHeight},
+        description=#{flight.description} WHERE fp_id=#{flight.fpId}
+    </update>
 </mapper>

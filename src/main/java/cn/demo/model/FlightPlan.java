@@ -17,6 +17,7 @@ public class FlightPlan {
     private int flightHeight;//飞行高度
     private String description;//飞行计划描述
     private Date applyDate;//申请时间
+    private int isDelete;//是否删除
     private int uavId;//无人机编号
     private int userId;//用户编号
 
@@ -36,9 +37,12 @@ public class FlightPlan {
      * @param flightHeight
      * @param description
      * @param applyDate
+     * @param isDelete
      * @param uavId
+     * @param userId
      */
-    public FlightPlan(int fpId, Date startDate, Date endDate, String startPoint, String endPoint, int flightHeight, String description, Date applyDate, int uavId,int userId) {
+    public FlightPlan(int fpId, Date startDate, Date endDate, String startPoint,String endPoint, int flightHeight,
+                      String description, Date applyDate,int isDelete, int uavId,int userId) {
         this.fpId = fpId;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -47,6 +51,7 @@ public class FlightPlan {
         this.flightHeight = flightHeight;
         this.description = description;
         this.applyDate = applyDate;
+        this.isDelete=isDelete;
         this.uavId = uavId;
         this.userId=userId;
     }
@@ -119,6 +124,14 @@ public class FlightPlan {
         this.applyDate = applyDate;
     }
 
+    public int getIsDelete() {
+        return isDelete;
+    }
+
+    public void setIsDelete(int isDelete) {
+        this.isDelete = isDelete;
+    }
+
     public int getUavId() {
         return uavId;
     }
@@ -133,5 +146,22 @@ public class FlightPlan {
 
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+    @Override
+    public String toString() {
+        return "FlightPlan{" +
+                "fpId=" + fpId +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", startPoint='" + startPoint + '\'' +
+                ", endPoint='" + endPoint + '\'' +
+                ", flightHeight=" + flightHeight +
+                ", description='" + description + '\'' +
+                ", applyDate=" + applyDate +
+                ", isDelete=" + isDelete +
+                ", uavId=" + uavId +
+                ", userId=" + userId +
+                '}';
     }
 }

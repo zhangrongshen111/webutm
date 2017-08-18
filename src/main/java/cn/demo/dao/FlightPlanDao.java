@@ -51,5 +51,5 @@ public interface FlightPlanDao {
      * @param flightPlan
      * @return
      */
-    public int updateFlightPlanById(@Param("FlightPlan") FlightPlan flightPlan);
+    public int updateFlightPlanById(@Param("flightPlan") FlightPlan flightPlan);
 }

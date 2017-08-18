@@ -87,8 +87,8 @@
                                             <td>${list.uavId}</td>
                                             <td>
                                                 <i class="fa fa-trash" aria-hidden="true"></i>
-                                                <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                                                <i class="fa fa-plus-square" aria-hidden="true"></i>
+                                                <a href="${pageContext.request.contextPath}/flightPlan/getFlightPlan?id=${list.fpId}"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+                                                <a href="${pageContext.request.contextPath}/flightPlan/updateDetails?id=${list.fpId}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                             </td>
                                         </tr>
                                     </c:forEach>

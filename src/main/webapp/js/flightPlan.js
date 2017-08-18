@@ -121,14 +121,11 @@ function ajaxShow (num) {
     var startTime=$("#startDate").val();
     var endTime=$("#endDate").val();
     if(startTime!=""&&endTime!=""){
-        // alert(startTime);
-        // alert(endTime);
         if(new Date(startTime)>=new Date(endTime)){
             alert("开始日期不能大于结束日期");
             return;
         }
     }
-    // alert('页码='+num);
     $.ajax({
         data:{curPage:num,startDate:startTime,endDate:endTime},
         url:"/flightPlan/ajax",
@@ -154,11 +151,10 @@ function ajaxShow (num) {
                 text+="<td>"+new Date(parseInt(fpList[i].applyDate.time)).toLocaleDateString()+"</td>";
                 text+="<td>"+fpList[i].uavId+"</td>";
                 text+=" <td>&nbsp;<i class='fa fa-trash' aria-hidden='true'></i>" +
-                    "&nbsp;<i class='fa fa-file-text-o' aria-hidden='true'></i>" +
-                    "&nbsp;<i class='fa fa-plus-square' aria-hidden='true'></i>" +
+                    "&nbsp;<a href='/flightPlan/getFlightPlan?id=${list.fpId}'><i class='fa fa-file-text-o' aria-hidden='true'></i></a>" +
+                    "&nbsp; <a href='/flightPlan/updateDetails?id=${list.fpId}'><i class='fa fa-pencil' aria-hidden='true'></i></a>" +
                     "</td>";
                 text+="</tr>";
-//                    console.log(fpList[i].startDate.time);
             }
             $('.tbody-white').html(text);
             option();
