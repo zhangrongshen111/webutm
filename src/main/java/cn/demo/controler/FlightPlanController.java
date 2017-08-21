@@ -41,7 +41,8 @@ public class FlightPlanController {
     public String show(Model model, HttpServletRequest request, HttpSession session) throws ParseException {
         String loginName=(String) session.getAttribute("loginName");
         if(loginName==null){
-            System.out.println("进入show，失败");
+            System.out.println("进入show，失败1");
+
             return "login";
         }else{
             System.out.println("进入show,chenggong");
