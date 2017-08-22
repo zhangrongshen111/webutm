@@ -27,6 +27,7 @@ public class UserController {
         System.out.println(user.getLoginName()+"===========");
         if(user==null){
             System.out.println("user==null===================");
+            System.out.println("user==null===================");
             request.setAttribute("message","账号或密码错误！请重新输入！！！");
             return "login";
         }else{
