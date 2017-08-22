@@ -65,7 +65,7 @@
                                         <i class="fa fa-trash" aria-hidden="true"></i>
                                         批量删除
                                     </a>
-                                    <a href="${pageContext.request.contextPath}/flightPlan/toAdd" class="layui-btn" onclick="add()">
+                                    <a href="${pageContext.request.contextPath}/flightPlan/toAdd" class="layui-btn" >
                                         <i class="fa fa-plus-square" aria-hidden="true"></i>
                                         添加用户
                                     </a>
@@ -92,7 +92,7 @@
                                     <tbody class="tbody-white">
                                     <c:forEach items="${map['fpList']}" var="list">
                                         <tr class="gradeA even">
-                                            <td for="cbx"><div><input type="checkbox" name="selectFlag" id="delet"  class="fly-checkbox" ></div>
+                                            <td><div><input type="checkbox" name="selectFlag" id="delet"  class="fly-checkbox" ></div>
                                             <td>${list.fpId}</td>
                                             <td><fmt:formatDate value="${list.startDate}" pattern="yyyy-MM-dd"/></td>
                                             <td><fmt:formatDate value="${list.endDate}" pattern="yyyy-MM-dd"/></td>

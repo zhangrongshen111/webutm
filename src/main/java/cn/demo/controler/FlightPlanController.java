@@ -57,7 +57,7 @@ public class FlightPlanController {
      * @return
      */
     @ResponseBody
-    @RequestMapping(value="/ajax",method = RequestMethod.GET)
+    @RequestMapping(value="/ajax",method = RequestMethod.POST)
     public JSON showAjax(Model model, HttpServletRequest request) throws ParseException {
         Map<String,Object> map=getFlightPlan(model,request);
         JSONObject json=JSONObject.fromObject(map);

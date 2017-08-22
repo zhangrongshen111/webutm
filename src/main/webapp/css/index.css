@@ -45,7 +45,7 @@ a {
 	height:100%;
 }
 a:hover, a:focus {
-	color: #c94e50;
+	color: #555;
 	outline: none;
 	text-decoration:none;
 }

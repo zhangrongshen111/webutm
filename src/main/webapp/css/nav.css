@@ -292,8 +292,15 @@ body,
     width:100%;
     font-size:13px;
 }
-#menuList .topMenu .topItem span:hover {
-    color:#33bce7;
+#menuList .topMenu .topItem .top:hover{
+    color: #FFFFFF;
+}
+#menuList .top:hover {
+    background-color:#33bce7 ;
+    /*color:#ffffff;*/
+}
+#menuList .topMenu .topItem a:hover{
+    color: #33bce7;
 }
 a:hover {
     text-decoration:none;
@@ -301,7 +308,7 @@ a:hover {
 #menuList .topMenu .topItem a .listIcon{
     width:40px;
     display:inline-block;
-    font-size:10px;
+    font-size:14px;
     text-align: center;
 }
 #menuList .topMenu .topItem a .bottomIcon{
@@ -323,7 +330,7 @@ a:hover {
 }
 /* 设置滚动条的样式 */
 ::-webkit-scrollbar {
-    width: 0px;
+    width: 0;
     overflow:hidden;
 }
 /*/!* 滚动槽 *!/*/
@@ -339,9 +346,6 @@ a:hover {
 }
 ::-webkit-scrollbar-thumb:window-inactive {
     background: #2d9f6e;
-}
-section {
-/*margin-left: 25%;*/
 }
 
 
