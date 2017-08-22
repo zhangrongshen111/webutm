@@ -58,10 +58,7 @@
                             <%--onclick="test()"--%>
                             <li class="downItem"><a href="/index.jsp" >我的首页</a></li>
                             <li class="downItem">
-                                <form action="${pageContext.request.contextPath}/flightPlan/show" method="post">
-                                    <input type="submit" value="飞行计划">
-                                </form>
-                                    <%--<a href="${pageContext.request.contextPath}/flightPlan/show" class="flightPlan">飞行计划</a>--%>
+                                    <a href="${pageContext.request.contextPath}/flightPlan/show" class="flightPlan">飞行计划</a>
                             </li>
                             <li class="downItem"><a href="${pageContext.request.contextPath}/space/showMap">空域管理</a></li>
                             <li class="downItem"><a href="#">信誉积分</a></li>
