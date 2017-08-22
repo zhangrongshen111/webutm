@@ -33,7 +33,7 @@ public class UserController {
             session.setAttribute("loginName",user.getLoginName());
             //设置失效时间
             System.out.println("user!=null=================");
-            return "forward:/flightPlan/show";
+            return "redirect:/flightPlan/show";
         }
 
     }

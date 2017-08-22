@@ -39,7 +39,7 @@
                 <span class="glyphicon glyphicon-envelope"></span>
             </div>
             <div class="personalImage">
-                <a href="login.html"> <img src="/image/01.png" alt="" width="100%" height="100%"/></a>
+                <a href="login.html"> <img src="/image/2.png" alt="" width="100%" height="100%"/></a>
             </div>
         </div>
     </div>

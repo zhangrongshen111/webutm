@@ -198,6 +198,10 @@ public class FlightPlanController {
         }
     }
 
+    public FlightPlanController() {
+        super();
+    }
+
     /**
      * 跳转到添加飞行计划页面
      * @return
