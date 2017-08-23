@@ -41,7 +41,7 @@
                 空域名称：<input type="text" id="asdName"><font color="red" size="5px">*</font></br>
                 空域坐标：<input type="text" id="asdLngLat"><font color="red" size="5px">*</font>
                 <input type="button" id="asdLnglatBtn" value="+"></br>
-                <div id="redius" >
+                <div id="redius" style ="display: none">
                     空域半径：<input type="text" id="asdRedius" ><font color="red" size="5px">*</font>
                 </div>
                 空域高度：<input type="text" id="asdHeight"><font color="red" size="5px">*</font></br>
@@ -57,18 +57,15 @@
                             <option value="正常">正常</option>
                             <option value="待确定">待确定</option>
                          </select><font color="red" size="5px">*</font></br>
-                <input type="button" id="show_asd" onclick="show_tempAsd()" value ="空域展示">
+                <div id = "errorMessage" ></div><%--信息提示--%>
+                <input type="button" id="show_asd" onclick="show_tempAsd()" value ="空域展示">&nbsp;&nbsp;
                 <input type="button" id="submit" onclick="save_polygon();" value ="提交信息"></br>
                 <input type="button" id="clear" onclick="clear_Marker();" value ="清空信息区">
                 <input type="button" id="hideInput" onclick="hiden_Input();" value ="隐藏编辑区">
             </div>
         </div>
-    </div>
-
-    <div id="airLinePath">
 
     </div>
-
     <script type="text/javascript" src='http://webapi.amap.com/maps?v=1.3&key=3c24b31bf9bac0687e867b01d4afd5e3'&plugin=AMap.Autocomplete,AMap.PolyEditor,AMap.CircleEditor></script>
 
     <script type="text/javascript" src="https://rawgithub.com/dataarts/dat.gui/master/build/dat.gui.min.js"></script>

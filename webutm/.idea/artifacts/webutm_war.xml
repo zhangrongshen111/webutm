@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="webutm:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="webutm.war">
+      <element id="artifact" artifact-name="webutm:war exploded" />
+    </root>
+  </artifact>
+</component>

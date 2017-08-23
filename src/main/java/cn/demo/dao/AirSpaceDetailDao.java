@@ -1,6 +1,7 @@
 package cn.demo.dao;
 
-import cn.demo.model.AirSapceDetail;
+
+import cn.demo.model.AirSpaceDetail;
 
 import java.util.List;
 
@@ -11,9 +12,9 @@ import java.util.List;
 public interface AirSpaceDetailDao {
 
     //存储空域相关信息
-    public void save_asd(AirSapceDetail airSapceDetail);
+    public void save_asd(AirSpaceDetail airSpaceDetail);
 
     //查询空域相关信息
-    public List<AirSapceDetail> find_asdAll();
+    public List<AirSpaceDetail> find_asdAll();
 
 }

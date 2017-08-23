@@ -1,9 +1,7 @@
 package cn.demo.service;
 
-import cn.demo.model.AirSapceDetail;
+import cn.demo.model.AirSpaceDetail;
 
-import java.awt.*;
-import java.util.*;
 import java.util.List;
 
 /**
@@ -11,8 +9,8 @@ import java.util.List;
  */
 public interface AirSpaceDetailService {
     //增加空域数据
-    public void saveData(AirSapceDetail airSapceDetail);
+    public void saveData(AirSpaceDetail airSapceDetail);
 
     //查询空域数据信息
-    public List<AirSapceDetail> find_asdAll();
+    public List<AirSpaceDetail> find_asdAll();
 }

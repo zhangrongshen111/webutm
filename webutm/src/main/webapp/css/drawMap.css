@@ -1,0 +1,42 @@
+body,html,#container{
+    height: 100%;
+    margin: 0px;
+    font-size: 12px;
+}
+.panel{
+    position: absolute;
+    right: 5px;
+    bottom: 20px;
+    background-color: #fff;
+    padding: 6px;
+    border: solid 1px silver;
+    box-shadow: 3px 4px 3px 0px silver;
+    border-radius: 3px;
+}
+.panel .bt{
+    float: left;
+    padding: 6px;
+    color: #09f;
+    border: solid 1px #09f;
+    background-color: #fff;
+    margin: 3px 9px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.mes{
+    border-top: solid 1px #09f;
+    margin-top: 19px;
+    padding: 5px 0;
+    padding-bottom: 0;
+}
+#count{
+    border-bottom: solid 1px;
+    margin-bottom: 6px;
+    padding: 2px;
+    color: #666;
+}
+.count,.mes{
+    border-radius: 0;
+    border: 0;
+    color: #aaa;
+}

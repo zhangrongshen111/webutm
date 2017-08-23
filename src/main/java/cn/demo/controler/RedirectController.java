@@ -13,18 +13,18 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 @RequestMapping("/space")
 public class RedirectController {
-    //跳转到展示地图页面
+    //跳转到展示空域信息界面
     @RequestMapping("/showMap")
     public String  Redirect(){
         System.out.println("进入showMap=============================");
         return "showMap";
     }
-    //跳转到展示地图页面
+    //跳转到展示航迹信息
     @RequestMapping(value = "/showAirPath",method = RequestMethod.GET)
     public String  RedirectAirPath(){
-        return "demo1";
+        return "showMap_AirPath";
     }
-    //跳转到展示地图页面
+    //跳转到登录界面
     @RequestMapping(value = "/showlogin",method = RequestMethod.GET)
     public String  RedirectLogin(){
         return "login";
