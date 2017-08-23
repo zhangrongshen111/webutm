@@ -42,7 +42,6 @@ public class FlightPlanController {
         String loginName=(String) session.getAttribute("loginName");
         if(loginName==null){
             System.out.println("进入show，失败");
-
             return "login";
         }else{
             System.out.println("进入show,chenggong");
