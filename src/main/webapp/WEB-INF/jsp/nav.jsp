@@ -49,10 +49,10 @@
                 <ul class="gn-menu topMenu">
                     <div class="targetIcon"></div>
                     <li class="topItem open">
-                        <a href="#"class="top">
-                            <span class="listIcon glyphicon glyphicon-home"></span>
+                        <a href="#" class="top">
+                            <span class="listIcon fa  fa-home"></span>
                             <span>个人首页</span>
-                            <span class="bottomIcon glyphicon glyphicon-chevron-down"></span>
+                            <span class="bottomIcon fa fa-chevron-down"></span>
                         </a>
                         <ul class="downMenu">
                             <%--onclick="test()"--%>
@@ -67,9 +67,9 @@
                     </li>
                     <li class="topItem open">
                         <a href="#" class="top">
-                            <span class="listIcon glyphicon glyphicon-plane"></span>
+                            <span class="listIcon fa fa-plane"></span>
                             <span>飞行计划</span>
-                            <span class="bottomIcon glyphicon glyphicon-chevron-down"></span>
+                            <span class="bottomIcon fa fa-chevron-down"></span>
                         </a>
                         <ul class="downMenu">
                             <li class="downItem"><a href="#">我的任务</a></li>
@@ -80,9 +80,9 @@
                     </li>
                     <li class="topItem open">
                         <a href="#" class="top">
-                            <span class="listIcon glyphicon glyphicon-plane"></span>
+                            <span class="listIcon fa fa-plane"></span>
                             <span>无人飞机</span>
-                            <span class="bottomIcon glyphicon glyphicon-chevron-down"></span>
+                            <span class="bottomIcon fa fa-chevron-down"></span>
                         </a>
                         <ul class="downMenu">
                             <li class="downItem"><a href="#">我的任务</a></li>
@@ -93,9 +93,9 @@
                     </li>
                     <li class="topItem open">
                         <a href="#"class="top">
-                            <span class="listIcon glyphicon glyphicon-plane"></span>
+                            <span class="listIcon fa fa-plane"></span>
                             <span>空域信息</span>
-                            <span class="bottomIcon glyphicon glyphicon-chevron-down"></span>
+                            <span class="bottomIcon fa fa-chevron-down"></span>
                         </a>
                         <ul class="downMenu">
                             <li class="downItem"><a href="#">我的任务</a></li>
@@ -106,9 +106,9 @@
                     </li>
                     <li class="topItem open">
                         <a href="#"class="top">
-                            <span class="listIcon glyphicon glyphicon-plane"></span>
+                            <span class="listIcon fa fa-plane"></span>
                             <span>交通规章</span>
-                            <span class="bottomIcon glyphicon glyphicon-chevron-down"></span>
+                            <span class="bottomIcon fa fa-chevron-down"></span>
                         </a>
                         <ul class="downMenu">
                             <li class="downItem"><a href="#">我的任务</a></li>
@@ -119,9 +119,9 @@
                     </li>
                     <li class="topItem open ">
                         <a href="#"class="top">
-                            <span class="listIcon glyphicon glyphicon-plane"></span>
+                            <span class="listIcon fa fa-plane"></span>
                             <span>飞行情报</span>
-                            <span class="bottomIcon glyphicon glyphicon-chevron-down"></span>
+                            <span class="bottomIcon fa fa-chevron-down"></span>
                         </a>
                         <ul class="downMenu">
                             <li class="downItem"><a href="#">我的任务</a></li>
@@ -132,9 +132,9 @@
                     </li>
                     <li class="topItem open">
                         <a href="#"class="top">
-                            <span class="listIcon glyphicon glyphicon-plane"></span>
+                            <span class="listIcon fa fa-plane"></span>
                             <span>航空情报</span>
-                            <span class="bottomIcon glyphicon glyphicon-chevron-down"></span>
+                            <span class="bottomIcon fa fa-chevron-down"></span>
                         </a>
                         <ul class="downMenu">
                             <li class="downItem"><a href="#">我的任务</a></li>
@@ -145,9 +145,9 @@
                     </li>
                     <li class="topItem open">
                         <a href="#"class="top">
-                            <span class="listIcon glyphicon glyphicon-plane"></span>
+                            <span class="listIcon fa fa-plane"></span>
                             <span>气象情报</span>
-                            <span class="bottomIcon glyphicon glyphicon-chevron-down"></span>
+                            <span class="bottomIcon fa fa-chevron-down"></span>
                         </a>
                         <ul class="downMenu">
                             <li class="downItem"><a href="#">我的任务</a></li>
@@ -158,9 +158,9 @@
                     </li>
                     <li class="topItem open">
                         <a href="#"class="top">
-                            <span class="listIcon glyphicon glyphicon-plane"></span>
+                            <span class="listIcon fa fa-plane"></span>
                             <span>告警救援</span>
-                            <span class="bottomIcon glyphicon glyphicon-chevron-down"></span>
+                            <span class="bottomIcon fa fa-chevron-down"></span>
                         </a>
                         <ul class="downMenu">
                             <li class="downItem"><a href="#">我的任务</a></li>
