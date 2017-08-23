@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.demo.dao.AirPathDao">
+    <resultMap id="AirPathInfo" type="AirPath">
+        <!--在ResultMap 中column 对应数据库表字段 |||| property 对应pojo 中的字段-->
+        <result column="asd_name" property="asdName"/>
+        <result column="ap_name" property="apName"/>
+        <result column="ap_lnglat" property="apLngLat"/>
+        <result column="ap_type" property="apType"/>
+    </resultMap>
+    <!--增加航迹数据-->
+    <insert id="save_apData" parameterType="AirPath">
+        INSERT INTO airpath (ap_name, ap_lnglat, ap_type, ap_user) VALUES  (#{apName},#{apLngLat},#{apType},#{apUser});
+    </insert>
+    <!--查询航迹信息-->
+    <select id="find_apData" resultMap="AirPathInfo" >
+       SELECT ap_name,ap_lnglat,ap_type FROM  airpath
+    </select>
+</mapper>
