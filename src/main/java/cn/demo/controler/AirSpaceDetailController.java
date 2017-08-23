@@ -28,7 +28,7 @@ public class AirSpaceDetailController {
     @RequestMapping(value = "/save_polygon",method ={RequestMethod.GET, RequestMethod.POST})
     public String save_polygon(@RequestBody List<AirSapceDetail> asd_data){
         System.out.println("进入Controller");
-        System.out.println("--------------1  2   3-------------------");
+        System.out.println("--------------1  2   3-------1233333333333333333333333------------");
         System.out.println("这里是修改的地方");
         System.out.println("此次插入数据条数为："+asd_data.size());
         for (AirSapceDetail asd_data1 : asd_data) {
