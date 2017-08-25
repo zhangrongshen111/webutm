@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.demo.dao.RegistDao">
+    <resultMap id="Regist" type="cn.demo.model.User">
+        <result column="userid" property="userid"/>
+        <result column="username" property="username"/>
+        <result column="userpwd" property="userpwd"/>
+        <result column="age" property="age"/>
+        <result column="sex" property="sex"/>
+        <result column="phone" property="phone"/>
+        <result column="email" property="email"/>
+        <result column="address" property="address"/>
+        <result column="cardid" property="cardid"/>
+        <result column="iddelete" property="iddelete"/>
+        <result column="lastupdatetime" property="lastupdatetime"/>
+        <result column="lastlogintime" property="lastlogintime"/>
+        <result column="ut_id" property="ut_id"/>
+    </resultMap>
+    <!--插入飞行计划信息-->
+    <insert id="Registadd" parameterType="cn.demo.model.User">
+        INSERT INTO user (username,userpwd,age,sex,phone,email,address,cardid,iddelete,lastupdatetime,lastlogintime,ut_id)
+        VALUES (#{username},#{userpwd},#{age},#{sex}
+        #{phone},#{email},#{address},#{cardid},
+        #{iddelete},#{lastupdatetime},#{lastlogintime},#{ut_id})
+    </insert>
+</mapper>

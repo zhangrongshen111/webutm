@@ -9,9 +9,9 @@
         <result column="password" property="password"/>
     </resultMap>
     <select id="login"  resultMap="UserInfo">
-       SELECT  id,loginname,password FROM users WHERE loginname=#{0} AND password=#{1}
+        SELECT id,username,userpwd FROM users WHERE username=#{0} AND userpwd=#{1}
     </select>
     <select id="getAll" resultMap="UserInfo">
-        SELECT id,loginname,password FROM users
+        SELECT id,username,userpwd FROM users
     </select>
 </mapper>

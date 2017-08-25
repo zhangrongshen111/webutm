@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="UTM@192.168.8.110">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.2">
+    <root id="1"/>
+    <schema id="2" parent="1" name="UTM">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="mysql"/>
+    <schema id="5" parent="1" name="performance_schema"/>
+    <table id="6" parent="2" name="airdate"/>
+    <table id="7" parent="2" name="airpath"/>
+    <table id="8" parent="2" name="airspacedetailtest"/>
+    <table id="9" parent="2" name="airspacemanagement"/>
+    <table id="10" parent="2" name="airtest"/>
+    <table id="11" parent="2" name="audit"/>
+    <table id="12" parent="2" name="aviationinformation"/>
+    <table id="13" parent="2" name="controlarea"/>
+    <table id="14" parent="2" name="flightinformation"/>
+    <table id="15" parent="2" name="flightplan"/>
+    <table id="16" parent="2" name="planchange"/>
+    <table id="17" parent="2" name="rescue"/>
+    <table id="18" parent="2" name="trafficadvisoty"/>
+    <table id="19" parent="2" name="trafficadvisotyreply"/>
+    <table id="20" parent="2" name="uav"/>
+    <table id="21" parent="2" name="uav_brand"/>
+    <table id="22" parent="2" name="uav_model"/>
+    <table id="23" parent="2" name="uav_type"/>
+    <table id="24" parent="2" name="user"/>
+    <table id="25" parent="2" name="users"/>
+    <table id="26" parent="2" name="usertype"/>
+    <column id="27" parent="6" name="AirId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="28" parent="6" name="AirName">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="29" parent="6" name="AirHight">
+      <Position>3</Position>
+      <DataType>double(11)|0</DataType>
+    </column>
+    <column id="30" parent="6" name="AirLongitude">
+      <Position>4</Position>
+      <DataType>double(11)|0</DataType>
+    </column>
+    <column id="31" parent="6" name="AirLatitude">
+      <Position>5</Position>
+      <DataType>double(11)|0</DataType>
+    </column>
+    <column id="32" parent="6" name="AirWorkTime">
+      <Position>6</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <key id="33" parent="6" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>AirId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="34" parent="7" name="ap_code">
+      <Position>1</Position>
+      <Comment>航迹编码</Comment>
+      <DataType>int(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="35" parent="7" name="ap_name">
+      <Position>2</Position>
+      <Comment>航机名称</Comment>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="36" parent="7" name="ap_lnglat">
+      <Position>3</Position>
+      <Comment>航迹坐标</Comment>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="37" parent="7" name="ap_type">
+      <Position>4</Position>
+      <Comment>航迹类型</Comment>
+      <DataType>varchar(5)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="38" parent="7" name="ap_user">
+      <Position>5</Position>
+      <Comment>航迹所属（该条航迹所属哪个用户）</Comment>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="39" parent="7" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ap_code</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="40" parent="8" name="asd_id">
+      <Position>1</Position>
+      <Comment>空域ID</Comment>
+      <DataType>int(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="41" parent="8" name="asd_code">
+      <Position>2</Position>
+      <Comment>空域编码</Comment>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="42" parent="8" name="asd_name">
+      <Position>3</Position>
+      <Comment>空域名称</Comment>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="43" parent="8" name="asd_lnglat">
+      <Position>4</Position>
+      <Comment>空域坐标</Comment>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="44" parent="8" name="asd_height">
+      <Position>5</Position>
+      <Comment>空域高度</Comment>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="45" parent="8" name="asd_shape">
+      <Position>6</Position>
+      <Comment>空域形状（圆形、多边形）</Comment>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="46" parent="8" name="asd_type">
+      <Position>7</Position>
+      <Comment>空域类型（高空、低空）</Comment>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="47" parent="8" name="asd_status">
+      <Position>8</Position>
+      <Comment>空域状态（可用、禁用）</Comment>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="48" parent="8" name="asd_radius">
+      <Position>9</Position>
+      <Comment>空域半径（当空域形状为圆形空域才会有）</Comment>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <key id="49" parent="8" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>asd_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="50" parent="9" name="am_id">
+      <Position>1</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="51" parent="9" name="am_name">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="52" parent="9" name="am_code">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="53" parent="9" name="am_coordinates">
+      <Position>4</Position>
+      <DataType>varchar(200)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="54" parent="9" name="am_level">
+      <Position>5</Position>
+      <DataType>int(1)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="55" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>am_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="56" parent="10" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="57" parent="10" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="58" parent="10" name="height">
+      <Position>3</Position>
+      <DataType>double|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="59" parent="10" name="longitude">
+      <Position>4</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <column id="60" parent="10" name="latitude">
+      <Position>5</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <column id="61" parent="10" name="date">
+      <Position>6</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="62" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="63" parent="11" name="a_id">
+      <Position>1</Position>
+      <DataType>int(5)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="64" parent="11" name="a_state">
+      <Position>2</Position>
+      <DataType>int(1)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="65" parent="11" name="a_time">
+      <Position>3</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="66" parent="11" name="userid">
+      <Position>4</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="67" parent="11" name="fp_id">
+      <Position>5</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="68" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>a_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="69" parent="12" name="ai_id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="70" parent="12" name="ai_title">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="71" parent="12" name="ai_content">
+      <Position>3</Position>
+      <DataType>varchar(1000)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="72" parent="12" name="ai_date">
+      <Position>4</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="73" parent="12" name="userid">
+      <Position>5</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="74" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ai_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="75" parent="13" name="ca_id">
+      <Position>1</Position>
+      <DataType>int(5)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="76" parent="13" name="ca_name">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="77" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ca_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="78" parent="14" name="fi_id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="79" parent="14" name="fi_title">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="80" parent="14" name="fi_content">
+      <Position>3</Position>
+      <DataType>varchar(1000)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="81" parent="14" name="fi_date">
+      <Position>4</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="82" parent="14" name="userid">
+      <Position>5</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="83" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>fi_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="84" parent="15" name="fp_id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="85" parent="15" name="startDate">
+      <Position>2</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="86" parent="15" name="endDate">
+      <Position>3</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="87" parent="15" name="startPoint">
+      <Position>4</Position>
+      <DataType>varchar(200)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="88" parent="15" name="endPoint">
+      <Position>5</Position>
+      <DataType>varchar(200)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="89" parent="15" name="flightHeight">
+      <Position>6</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="90" parent="15" name="description">
+      <Position>7</Position>
+      <DataType>varchar(500)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="91" parent="15" name="ApplyDate">
+      <Position>8</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="92" parent="15" name="isDelete">
+      <Position>9</Position>
+      <DataType>int(1)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="93" parent="15" name="UavId">
+      <Position>10</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="94" parent="15" name="userId">
+      <Position>11</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <key id="95" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>fp_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="96" parent="16" name="Pc_id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="97" parent="16" name="Pc_startDate">
+      <Position>2</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="98" parent="16" name="Pc_endDate">
+      <Position>3</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="99" parent="16" name="Pc_startPoint">
+      <Position>4</Position>
+      <DataType>varchar(200)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="100" parent="16" name="Pc_endPoint">
+      <Position>5</Position>
+      <DataType>varchar(200)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="101" parent="16" name="Pc_flightHeight">
+      <Position>6</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="102" parent="16" name="Pc_description">
+      <Position>7</Position>
+      <DataType>varchar(500)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="103" parent="16" name="fp_id">
+      <Position>8</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="104" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Pc_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="105" parent="17" name="r_id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="106" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>r_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="107" parent="18" name="ta_id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="108" parent="18" name="ta_content">
+      <Position>2</Position>
+      <DataType>varchar(1000)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="109" parent="18" name="ta_time">
+      <Position>3</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="110" parent="18" name="userid">
+      <Position>4</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="111" parent="18" name="ta_reply">
+      <Position>5</Position>
+      <DataType>varchar(1000)|0</DataType>
+    </column>
+    <column id="112" parent="18" name="reply_time">
+      <Position>6</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="113" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ta_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="114" parent="19" name="tar_id">
+      <Position>1</Position>
+      <DataType>int(5)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="115" parent="19" name="tar_content">
+      <Position>2</Position>
+      <DataType>varchar(1000)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="116" parent="19" name="tar_time">
+      <Position>3</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="117" parent="19" name="userid">
+      <Position>4</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="118" parent="19" name="Ta_id">
+      <Position>5</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="119" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>tar_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="120" parent="20" name="uav_Id">
+      <Position>1</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="121" parent="20" name="uav_Code">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="122" parent="20" name="b_id">
+      <Position>3</Position>
+      <DataType>int(4)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="123" parent="20" name="m_id">
+      <Position>4</Position>
+      <DataType>int(4)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="124" parent="20" name="t_id">
+      <Position>5</Position>
+      <DataType>int(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="125" parent="20" name="userId">
+      <Position>6</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="126" parent="20" name="registerTime">
+      <Position>7</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="127" parent="20" name="isDelete">
+      <Position>8</Position>
+      <DataType>int(1)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="128" parent="20" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>uav_Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="129" parent="21" name="b_id">
+      <Position>1</Position>
+      <DataType>int(4)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="130" parent="21" name="b_name">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="131" parent="21" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>b_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="132" parent="22" name="m_id">
+      <Position>1</Position>
+      <DataType>int(4)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="133" parent="22" name="m_name">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="134" parent="22" name="b_id">
+      <Position>3</Position>
+      <DataType>int(5)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="135" parent="22" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>m_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="136" parent="23" name="t_id">
+      <Position>1</Position>
+      <DataType>int(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="137" parent="23" name="t_name">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="138" parent="23" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>t_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="139" parent="24" name="userId">
+      <Position>1</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="140" parent="24" name="userName">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="141" parent="24" name="userPwd">
+      <Position>3</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="142" parent="24" name="age">
+      <Position>4</Position>
+      <DataType>int(3)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="143" parent="24" name="sex">
+      <Position>5</Position>
+      <DataType>int(1)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="144" parent="24" name="phone">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="145" parent="24" name="email">
+      <Position>7</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="146" parent="24" name="address">
+      <Position>8</Position>
+      <DataType>varchar(200)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="147" parent="24" name="cardID">
+      <Position>9</Position>
+      <DataType>varchar(18)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="148" parent="24" name="idDelete">
+      <Position>10</Position>
+      <DataType>int(1)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="149" parent="24" name="lastUpdateTime">
+      <Position>11</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="150" parent="24" name="lastLoginTime">
+      <Position>12</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="151" parent="24" name="ut_id">
+      <Position>13</Position>
+      <DataType>int(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="152" parent="24" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>userId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="153" parent="25" name="id">
+      <Position>1</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="154" parent="25" name="loginname">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="155" parent="25" name="password">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="156" parent="25" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="157" parent="26" name="ut_id">
+      <Position>1</Position>
+      <DataType>int(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="158" parent="26" name="ut_name">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="159" parent="26" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ut_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
