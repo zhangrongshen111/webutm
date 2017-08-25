@@ -37,7 +37,7 @@ public class FlightPlanController {
      * @param request
      * @return
      */
-    @RequestMapping(value = "/show",method = RequestMethod.GET)
+    @RequestMapping(value = "/show",method = RequestMethod.POST)
     public String show(Model model, HttpServletRequest request, HttpSession session) throws ParseException {
         String loginName=(String) session.getAttribute("loginName");
         if(loginName==null){
@@ -57,7 +57,7 @@ public class FlightPlanController {
      * @return
      */
     @ResponseBody
-    @RequestMapping(value="/ajax",method = RequestMethod.GET)
+    @RequestMapping(value="/ajax",method = RequestMethod.POST)
     public JSON showAjax(Model model, HttpServletRequest request) throws ParseException {
         Map<String,Object> map=getFlightPlan(model,request);
         JSONObject json=JSONObject.fromObject(map);
@@ -191,7 +191,7 @@ public class FlightPlanController {
         System.out.println(row+"========================");
         if(row>0){
             request.setAttribute("message","添加成功！！！");
-            return "redirect:/flightPlan/show";
+            return "forward:/flightPlan/show";
         }else{
             request.setAttribute("message","添加失败！！！");
             return "addPlan";

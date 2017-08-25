@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/webutm.iml" filepath="$PROJECT_DIR$/webutm.iml" />
+      <module fileurl="file://D:\\webutm\webutm.iml" filepath="D:\\webutm\webutm.iml" />
     </modules>
   </component>
 </project>

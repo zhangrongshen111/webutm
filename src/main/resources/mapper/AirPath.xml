@@ -3,7 +3,6 @@
 <mapper namespace="cn.demo.dao.AirPathDao">
     <resultMap id="AirPathInfo" type="AirPath">
         <!--在ResultMap 中column 对应数据库表字段 |||| property 对应pojo 中的字段-->
-        <result column="asd_name" property="asdName"/>
         <result column="ap_name" property="apName"/>
         <result column="ap_lnglat" property="apLngLat"/>
         <result column="ap_type" property="apType"/>

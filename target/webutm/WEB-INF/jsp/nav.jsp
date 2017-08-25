@@ -55,27 +55,25 @@
                             <span class="bottomIcon glyphicon glyphicon-chevron-down"></span>
                         </a>
                         <ul class="downMenu">
-                            <%--onclick="test()"--%>
                             <li class="downItem"><a href="/index.jsp" >我的首页</a></li>
                             <li class="downItem">
                                 <form action="${pageContext.request.contextPath}/flightPlan/show" method="post">
                                     <input type="submit" value="飞行计划">
                                 </form>
-                                    <%--<a href="${pageContext.request.contextPath}/flightPlan/show" class="flightPlan">飞行计划</a>--%>
                             </li>
                             <li class="downItem"><a href="${pageContext.request.contextPath}/space/showMap">空域管理</a></li>
-                            <li class="downItem"><a href="#">信誉积分</a></li>
+                            <li class="downItem"><a href="${pageContext.request.contextPath}/space/showAirPath">航迹管理</a></li>
                         </ul>
                     </li>
                     <li class="topItem open">
                         <a href="#">
                             <span class="listIcon glyphicon glyphicon-plane"></span>
-                            <span>飞行计划</span>
+                            <span>无人机管理</span>
                             <span class="bottomIcon glyphicon glyphicon-chevron-down"></span>
                         </a>
                         <ul class="downMenu">
-                            <li class="downItem"><a href="#">我的任务</a></li>
-                            <li class="downItem"><a href="#">我的飞机</a></li>
+                            <li class="downItem"><a href="#">飞机注册</a></li>
+                            <li class="downItem"><a href="${pageContext.request.contextPath}/space/showLoginNav">无人机注册</a></li>
                             <li class="downItem"><a href="#">我的余额</a></li>
                             <li class="downItem"><a href="#">信誉积分</a></li>
                         </ul>

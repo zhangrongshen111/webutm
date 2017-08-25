@@ -35,7 +35,7 @@ body {
 #right {
     color: #444;
     background-color: #f8f8f8;
-    width: 25%;
+    width: 20%;
     /*display:none;*/
     position:absolute;
     top:10px;
@@ -45,7 +45,10 @@ body {
     margin: 4px;
     margin-left: 15px;
 }
-
+#right select {
+    margin: 4px;
+    margin-left: 15px;
+}
 /*隐藏高德图标*/
 .amap-logo {
     right: 0 !important;

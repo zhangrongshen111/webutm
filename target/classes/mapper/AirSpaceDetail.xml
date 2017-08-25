@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.demo.dao.AirSpaceDetailDao">
-    <resultMap id="AisSpaceDetailInfo" type="cn.demo.model.AirSapceDetail">
+    <resultMap id="AisSpaceDetailInfo" type="AirSpaceDetail">
         <!--在ResultMap 中column 对应数据库表字段 |||| property 对应pojo 中的字段-->
         <result column="asd_name" property="asdName"/>
         <result column="asd_code" property="asdCode"/>
-        <result column="asd_lng" property="asdLng"/>
-        <result column="asd_lat" property="asdLat"/>
+        <result column="asd_lnglat" property="asdLngLat"/>
         <result column="asd_height" property="asdHeight"/>
         <result column="asd_shape" property="asdShape"/>
         <result column="asd_radius" property="asdRadius"/>
@@ -14,13 +13,12 @@
         <result column="asd_status" property="asdStatus"/>
     </resultMap>
     <!--增加空域数据-->
-    <insert id="save_asd" parameterType="AirSapceDetail">
-        INSERT INTO AirSpaceDetail(asd_name,asd_code,asd_lng,asd_lat,asd_height,asd_shape,asd_radius,asd_type,asd_status)
-        VALUES
-        (#{asdName},#{asdCode},#{asdLng},#{asdLat},#{asdHeight},#{asdShape},#{asdRadius},#{asdType},#{asdStatus});
+    <insert id="save_asd" parameterType="AirSpaceDetail">
+        INSERT INTO airspacedetailtest (asd_name,asd_code,asd_lnglat,asd_height,asd_shape,asd_radius,asd_type,asd_status) VALUES
+        (#{asdName},#{asdCode},#{asdLngLat},#{asdHeight},#{asdShape},#{asdRadius},#{asdType},#{asdStatus});
     </insert>
     <!--查询空域点数据-->
     <select id="find_asdAll" resultMap="AisSpaceDetailInfo" >
-      SELECT  asd_name,asd_code,asd_height,asd_lng,asd_lat,asd_shape,asd_radius,asd_type,asd_status FROM AirSpaceDetail
+      SELECT  asd_name,asd_code,asd_height,asd_lnglat,asd_shape,asd_radius,asd_type,asd_status FROM airspacedetailtest
     </select>
 </mapper>
