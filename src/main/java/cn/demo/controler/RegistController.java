@@ -17,6 +17,7 @@ public class RegistController {
     private  RegistService registService;
     @RequestMapping(value = "/regist")
     public String regist(Model model,User user){
+        System.out.println("get in");
         int row =registService.Registadd(user);
         if(row>0){
             model.addAttribute("message","注册成功！！！");
