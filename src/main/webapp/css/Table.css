@@ -11,7 +11,7 @@ h3 {
     color: #929292;
     margin: -15px;
     margin-bottom: 20px;
-    padding: 15px;
+    padding: 10px;
     font-weight: normal;
     background-color: #fafbfc;
     border-bottom: 1px solid #cfdbe2;
@@ -176,4 +176,112 @@ table {
 
 .scoller {
     overflow: visible;
+}
+/*按钮样式，复选框样式*/
+/*两个操作删除与添加*/
+.operate {
+    float: right;
+    line-height: 38px;
+}
+li {
+    list-style: none
+}
+/*多选框删除*/
+.fly-checkbox {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border: 2px solid #28b779;
+    background-clip: padding-box;
+    display: inline-block;
+    cursor: pointer;
+}
+th>input[type=checkbox] {
+    vertical-align: middle;
+}
+input[type=checkbox]:focus {
+    outline: 0px auto -webkit-focus-ring-color;
+}
+.fly-checkbox:focus {
+    outline: 0 none;
+    outline-offset: 0;
+}
+.fly-checkbox:checked {
+    background-color:#28b779;
+    border: 0 solid #28b779;
+}
+.fly-checkbox:checked:before {
+    position: absolute;
+    display: inline-block;
+    right: 47%;
+    bottom: 39%;
+    transform: translate(50%,50%);
+    content: url(/image/green1.png);
+    color: #fff;
+}
+/*删除按钮与添加按钮样式*/
+.layui-btn {
+    display: inline-block;
+    height: 38px;
+    line-height: 38px;
+    padding: 0 18px;
+    background-color: #28b779;
+    color: #fff;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 14px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    opacity: .9;
+    filter: alpha(opacity=90);
+}
+.layui-btn {
+    margin-left: 10px;
+}
+.item input {
+    height: 38px;
+    line-height: 38px;
+    border: 1px solid #e6e6e6;
+    background-color: #fff;
+    width: 328px;
+    font-size: 14px;
+    padding: 11px 10px;
+    margin-right: 10px;
+    color: #666;
+    transition: .3s;
+    cursor: pointer;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+.form-control {
+    padding:0;
+}/*添加页面样式*/
+table td {
+    padding: 5px;
+}
+.layui-btn {
+    display: inline-block;
+    height: 38px;
+    line-height: 38px;
+    padding: 0 18px;
+    background-color:#28b779;
+    color: #fff;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 14px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    opacity: .9;
+    filter: alpha(opacity=90);
+    /*margin-left: 10%;*/
+    margin-top: 15px;
+}
+.table-responsive {
+    overflow-x: hidden;
 }

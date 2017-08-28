@@ -128,7 +128,7 @@ function ajaxShow (num) {
     }
     $.ajax({
         data:{curPage:num,startDate:startTime,endDate:endTime},
-        url:"/flightPlan/ajax",
+        url:"/webutm/flightPlan/ajax",
         type:"post",
         dataType:"json",
         success:function (result) {

@@ -10,13 +10,13 @@ import org.springframework.stereotype.Service;
  * Created by New52 on 2017/8/24.
  */
 @Service
-public class RegistServiceImpl {
+public class RegistServiceImpl implements RegistService{
     @Autowired
     private RegistDao registDao;
     /*
     用户注册信息
      */
-    public int  Regist(User user){
+   public int Registadd(User user) {
         return registDao.Registadd(user);
     }
 }

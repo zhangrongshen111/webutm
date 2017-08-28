@@ -9,5 +9,5 @@ import org.apache.ibatis.annotations.Param;
  */
 public interface RegistDao {
     //注册用户
-    public int Registadd(@Param("regist")User user);
+    public  int Registadd(@Param("regist")User user);
 }
