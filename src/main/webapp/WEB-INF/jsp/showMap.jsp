@@ -13,7 +13,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
     <title>地图展示</title>
-    <link rel="stylesheet" href="/css/showMap.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/showMap.css">
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.8.3.min.js"></script>
 </head>
 <body>

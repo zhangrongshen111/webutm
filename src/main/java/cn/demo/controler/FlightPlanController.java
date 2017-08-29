@@ -127,7 +127,7 @@ public class FlightPlanController {
      * 根据主键删除计划信息  异步
      * @return
      */
-    @RequestMapping("/deleteFlightPlan")
+    @RequestMapping(value="/deleteFlightPlan",method = RequestMethod.POST)
     public String deleteFlightPlanById(HttpServletRequest request){
         String id=request.getParameter("id");
         int row=flightPlanService.deleteFlightPlanById(id);

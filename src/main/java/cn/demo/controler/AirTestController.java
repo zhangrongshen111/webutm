@@ -21,6 +21,7 @@ import java.util.Map;
  * Created by Administrator on 2017/7/27.
  */
 @Controller
+@RequestMapping("/airTest")
 public class AirTestController {
 
     @Autowired

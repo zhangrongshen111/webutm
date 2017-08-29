@@ -41,7 +41,6 @@ public class UserController {
 
     @RequestMapping(value = "/show",method = RequestMethod.POST)
     public String show(){
-
         return "login";
     }
 

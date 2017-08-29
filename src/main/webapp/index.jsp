@@ -31,7 +31,7 @@
 <div class="wrapper">
 
     <%--<%@include file="WEB-INF/jsp/nav.jsp"%>--%>
-    <jsp:include page="WEB-INF/jsp/nav.jsp"/>
+        <jsp:include page="WEB-INF/jsp/nav.jsp"/>
     <div class="content-wrap " >
         <div class="content"id="change">
             <section class="content-header">

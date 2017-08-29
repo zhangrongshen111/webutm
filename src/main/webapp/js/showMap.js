@@ -297,7 +297,7 @@ var provinces = [];
 function init(){
     $.ajax({
         type: "get",
-        url: "/json",
+        url: "/airTest/json",
         dataType: "json",
         success: function (data){
             /*将数据库中GPS数据查询为坐标转换做准备*/
