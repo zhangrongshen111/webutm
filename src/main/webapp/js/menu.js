@@ -33,3 +33,10 @@ $('.downMenu li').click(function(event){
     $(this).css({'color':'#39C6F4'});
 });
 
+
+//点击菜单改变右边内容区域的宽度
+$('.menu-button').toggle(function(){
+    $('.content').css('width','85%');
+},function(){
+    $('.content').css('width','100%');
+});

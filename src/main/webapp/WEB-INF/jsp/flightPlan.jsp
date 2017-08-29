@@ -93,7 +93,7 @@
                                     <tbody class="tbody-white">
                                     <c:forEach items="${map['fpList']}" var="list">
                                         <tr class="gradeA even">
-                                            <td><div><input type="checkbox" name="selectFlag" id="delet"  class="fly-checkbox" ></div>
+                                            <td><div><input type="checkbox" name="selectFlag" id="${list.fpId}"  class="fly-checkbox" ></div>
                                             <td>${list.fpId}</td>
                                             <td><fmt:formatDate value="${list.startDate}" pattern="yyyy-MM-dd"/></td>
                                             <td><fmt:formatDate value="${list.endDate}" pattern="yyyy-MM-dd"/></td>
@@ -146,7 +146,7 @@
 <%--<script src="${pageContext.request.contextPath}/js/page.js"></script>--%>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/My97DatePicker/WdatePicker.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/flightPlan.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/nav.js"></script>
+<%--<script type="text/javascript" src="${pageContext.request.contextPath}/js/nav.js"></script>--%>
 <script>
     // Copyright 2014-2015 Twitter, Inc.
     // Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)

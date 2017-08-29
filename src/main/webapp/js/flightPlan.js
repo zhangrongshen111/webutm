@@ -116,6 +116,8 @@ function option(){
 }
 
 
+
+
 //异步加载回传数据
 function ajaxShow (num) {
     var startTime=$("#startDate").val();
@@ -132,7 +134,7 @@ function ajaxShow (num) {
         type:"post",
         dataType:"json",
         success:function (result) {
-            $("[name='checkBox']").prop("checked","false");
+            $("#checkBoxAll").attr("checked",false);
             var fpList=result["fpList"];
             $("#curPage").html(result["curPage"]);
             $("#countPage").html(result["countPage"]);
@@ -141,7 +143,7 @@ function ajaxShow (num) {
             var text=""
             for(var i=0;i<fpList.length;i++){
                 text+="<tr>";
-                text+="<td><input type='checkbox' name='checkBox' class='fly-checkbox' id='"+fpList[i].fpId+"'/></td>";
+                text+="<td><div><input type='checkbox' name='selectFlag' class='fly-checkbox' id='"+fpList[i].fpId+"'/></div></td>";
                 text+="<td>"+fpList[i].fpId+"</td>";
                 text+="<td>"+new Date(parseInt(fpList[i].startDate.time)).toLocaleDateString()+"</td>";
                 text+="<td>"+new Date(parseInt(fpList[i].endDate.time)).toLocaleDateString()+"</td>";
@@ -170,13 +172,13 @@ function ajaxShow (num) {
 //全选按钮点击事件
 $('#checkBoxAll').click(function () {
     //复选框与全选框状态一致
-    $("[name='checkBox']").prop("checked",$(this).prop("checked"));
+    $("[name='selectFlag']").prop("checked",$(this).prop("checked"));
 });
 
 //复选框点击事件
-$("[name='checkBox']").click(function () {
-    var count=$("[name='checkBox']").length;
-    var size=$("[name='checkBox']:checked").length;
+$("[name='selectFlag']").click(function () {
+    var count=$("[name='selectFlag']").length;
+    var size=$("[name='selectFlag']:checked").length;
     if(size==count){
         $("#checkBoxAll").prop("checked",true);
     }else{
@@ -187,17 +189,17 @@ $("[name='checkBox']").click(function () {
 
 //删除选中项点击事件
 $("#delSelect").click(function () {
-    var size=$("[name='checkBox']:checked").length;
+    var size=$("[name='selectFlag']:checked").length;
     if(size==0){
         alert("请先选中要删除的记录");
     }else{
-       if(confirm("确定要删除选中的记录吗？")){
-           var id="";
-           $("[name='checkBox']:checked").each(function () {
-               id+=$(this).prop("id")+",";
-           });
-           id=id.substring(0,id.length-1);
-           alert("删除id为"+id+"的记录！！！");
-       }
+        if(confirm("确定要删除选中的记录吗？")){
+            var id="";
+            $("[name='selectFlag']:checked").each(function () {
+                id+=$(this).prop("id")+",";
+            });
+            id=id.substring(0,id.length-1);
+            alert("删除id为"+id+"的记录！！！");
+        }
     }
 });

@@ -53,20 +53,11 @@
 <script src="${pageContext.request.contextPath}/js/toggleMenu.js" type="text/javascript" language="javascript"></script>
 <script src="${pageContext.request.contextPath}/js/classie.js"></script>
 <script src="${pageContext.request.contextPath}/js/menu.js"></script>
-<script src="${pageContext.request.contextPath}/js/nav.js"></script>
+<%--<script src="${pageContext.request.contextPath}/js/nav.js"></script>--%>
 <%--<script>--%>
 
 <%--new gnMenu( document.getElementById( 'gn-menu' ) );--%>
 <%--</script>--%>
-<script>
-    $(document).ready(function(){
 
-        $('.menu-button').toggle(function(){
-            $('.content').css('width','85%');
-        },function(){
-            $('.content').css('width','100%');
-        });
-    });
-</script>
 </body>
 </html>
