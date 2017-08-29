@@ -29,6 +29,13 @@
     </select>
     <!--保存无人机注册相关信息-->
     <insert id="saveUavDetail" parameterType="Uav">
-        INSERT INTO uav (uav_Code,b_id,m_id,t_id,userid,registerTime,isDelete) VALUES (#{uavCdoe},#{uavBrandId},#{uavModelId},#{uavTypeId},'1234',2014-10-10 08:11,'1');
+        INSERT INTO uav (uav_Code,b_id,m_id,t_id,userid,registerTime,isDelete) VALUES (#{uavCode},#{b_id},#{m_id},#{t_id},#{userId},#{registerTime},#{isDelete});
     </insert>
+    <!--查询当前用户下的所有已注册的无人机信息-->
+    <select id="findUserIdUavAll" parameterType="String" resultType="UavPack" >
+        SELECT u.uav_Code uavCode, (SELECT b_name FROM uav_brand WHERE b_id = u.b_id ) uavBrandName ,
+        (SELECT m_name FROM uav_model WHERE m_id = u.m_id) uavVersionName,
+         (SELECT t_name FROM uav_type WHERE t_id = u.t_id) uavTypeName,
+          u.userId,u.registerTime,u.isDelete FROM uav u where u.isDelete = '1' AND u.userId = #{userId}
+    </select>
 </mapper>

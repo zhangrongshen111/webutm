@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 /**
  * Created by Administrator on 2017/8/23.
@@ -59,8 +61,21 @@ public class UavLoginController {
      */
     @RequestMapping(value = "/saveUavDetail")
     @ResponseBody
-    public String saveUavDetail(@RequestBody Uav uav){
-        System.out.println("我进来了");
-        return null;
+    public String saveUavDetail(Uav uav){
+        uav.setUserId(001);
+//      String simpleDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+        uav.setRegisterTime(new Date());
+        uav.setIsDelete(1);
+        uavLoginService.saveUavDetail(uav);
+        return "123123";
+    }
+    /**
+     * 查询当前用户下的所有无人机信息
+     */
+    @RequestMapping(value = "/findUserIdUavAll")
+    @ResponseBody
+    public List<Object> findUserIdUavAll(String userId){
+        System.out.println("我进来了---------------------->"+userId+"<----------------");
+       return uavLoginService.findUserIdUavAll(userId);
     }
 }

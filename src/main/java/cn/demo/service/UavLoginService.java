@@ -24,4 +24,7 @@ public interface UavLoginService {
 
     //增加无人机注册信息
     public void saveUavDetail(Uav uav);
+
+    //当前用户下已注册无人机信息
+    public List<Object> findUserIdUavAll(String UserId);
 }

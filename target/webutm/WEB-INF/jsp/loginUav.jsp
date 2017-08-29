@@ -19,16 +19,17 @@
     <%--用Form 表单包裹数据主要实现清空数据的功能--%>
     <form action="/uav/saveUavDetail" method="post">
         <div >
-        无人机编码: <input id="uavCode" name="uavCode"/></br>
-        无人机品牌: <select id = "uavBrand">
+        无人机编码: <input id="uavCode" name="uavCode" /></br>
+        无人机品牌: <select id = "uavBrand" name="b_id">
                         <option id="uavBrandInit" value="init">- -请 选 择- -</option>
                     </select></br>
-        无人机型号: <select id = "uavVersion">
+        无人机型号: <select id = "uavVersion" name="m_id">
                         <option id="uavVersionInit" value="init">- -请 选 择- -</option>
                     </select></br>
-        无人机用途: <select id = "uavType">
+        无人机用途: <select id = "uavType" name="t_id">
                         <option id="uavTypeInit" value="init">- -请 选 择- -</option>
                     </select></br>
+        <input >
         </div>
         <div>
             <input id="login" name="login" type="submit" value="注册"/>
@@ -40,7 +41,7 @@
     <div >
         无人机编码: <input id="findUavCode" name="uavCode"/>
         无人机品牌: <select id = "findUavBrand"><option id="findUavBrandInit" value="init">- -请 选 择- -</option></select>
-        无人机型号: <select id = "findUavVersion"><option id="findUavVeriosnInit" value="init">- -请 选 择- -</option></select></br>
+        无人机型号: <select id = "findUavVersion"><option id="findUavVersionInit" value="init">- -请 选 择- -</option></select></br>
         无人机产地: <select id = "findUavHome">
                         <option>- - 请选择 - -</option>
                         <option>中国</option>

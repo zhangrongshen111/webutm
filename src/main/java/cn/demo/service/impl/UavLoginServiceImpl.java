@@ -36,7 +36,12 @@ public class UavLoginServiceImpl implements UavLoginService{
 
     //保存无人机注册相关信息
     public void saveUavDetail(Uav uav) {
+            uavLoginDao.saveUavDetail(uav);
+    }
 
+    //查询当前用户下的的已注册无人机信息
+    public List<Object> findUserIdUavAll(String UserId) {
+        return uavLoginDao.findUserIdUavAll(UserId);
     }
 
 }

@@ -1,5 +1,6 @@
 package cn.demo.dao;
 
+import cn.demo.model.Uav;
 import cn.demo.model.UavBrand;
 import cn.demo.model.UavModel;
 import cn.demo.model.UavType;
@@ -20,5 +21,8 @@ public interface UavLoginDao {
     public List<UavType> findUavType();
 
     //保存无人机注册相关信息
-    public void saveUavDetail();
+    public void saveUavDetail(Uav uav);
+
+    //查询当前用户下的所有已注册的无人机信息
+    public List<Object> findUserIdUavAll(String userId);
 }
