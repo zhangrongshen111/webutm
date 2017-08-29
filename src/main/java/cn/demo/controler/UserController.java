@@ -43,5 +43,13 @@ public class UserController {
     public String show(){
         return "login";
     }
+    @RequestMapping(value = "/toRegister" , method = RequestMethod.GET)
+    public String toRegister(){
+        return "register";
+    }
+    @RequestMapping(value = "/toLogin" , method = RequestMethod.GET)
+    public String toLogin(){
+        return "login";
+    }
 
 }

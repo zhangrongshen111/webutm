@@ -28,7 +28,7 @@
         <div class="logo">
             <h1>欢迎进入无人机管理系统</h1>
         </div>
-        <a class="register">还不是会员?注册</a>
+        <a href="${pageContext.request.contextPath}/user/toRegister" class="register">还不是会员?注册</a>
         <form action="${pageContext.request.contextPath}/user/login" method="post">
             <table>
                 <tr>

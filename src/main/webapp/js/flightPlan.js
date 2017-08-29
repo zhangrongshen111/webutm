@@ -132,6 +132,7 @@ function ajaxShow (num) {
         type:"post",
         dataType:"json",
         success:function (result) {
+            $("[name='checkBox']").prop("checked","false");
             var fpList=result["fpList"];
             $("#curPage").html(result["curPage"]);
             $("#countPage").html(result["countPage"]);
@@ -140,7 +141,7 @@ function ajaxShow (num) {
             var text=""
             for(var i=0;i<fpList.length;i++){
                 text+="<tr>";
-                text+="<td><input type='checkbox' name='checkBox' id='"+fpList[i].fpId+"'/></td>";
+                text+="<td><input type='checkbox' name='checkBox' class='fly-checkbox' id='"+fpList[i].fpId+"'/></td>";
                 text+="<td>"+fpList[i].fpId+"</td>";
                 text+="<td>"+new Date(parseInt(fpList[i].startDate.time)).toLocaleDateString()+"</td>";
                 text+="<td>"+new Date(parseInt(fpList[i].endDate.time)).toLocaleDateString()+"</td>";

@@ -17,14 +17,18 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/fonts/font-awesome-4.2.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/normalize.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/nav.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/menu_elastic.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/Table.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/index.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/nav.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/Table.css"/>
+    <%--<script>--%>
+        <%--function checkAll() {--%>
+            <%--for (var i = 0; i < document.getElementsByName("selectFlag").length; i++) {--%>
+                <%--document.getElementsByName("selectFlag")[i].checked = document.getElementById("checkBoxAll").checked;--%>
+            <%--}--%>
+        <%--}--%>
+    <%--</script>--%>
 </head>
 <body>
-
-
 <div class="wrapper">
     <%--<%@include file="nav.jsp"%>--%>
     <jsp:include page="nav.jsp"/>
@@ -50,17 +54,30 @@
                     </div>
                     <div class="panel-body">
                         <div class="table-responsive box-default form-inline no-footer scoller">
-                                &nbsp;&nbsp;开始时间&nbsp;&nbsp;
-                                <input type="text" id="startDate" class="form-control input-sm form-inline" onfocus="WdatePicker()" readonly="readonly">
-                                &nbsp;&nbsp;截止时间&nbsp;&nbsp;
-                                <input type="text" id="endDate" class="form-control input-sm" onfocus="WdatePicker()" readonly="readonly">
-                                <input type="button" name="search" id="search-btn2" class="btn btn-flat btn-sm" value="查询">
-                            &nbsp;&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/flightPlan/toAdd" style="color:red;font-weight:bold;">添加飞行计划</a>
+                            <ul>
+                                <li>
+                                    &nbsp;&nbsp;开始时间&nbsp;&nbsp;
+                                    <input type="text" id="startDate" class="form-control form-inline" onfocus="WdatePicker()" readonly="readonly">
+                                    &nbsp;&nbsp;截止时间&nbsp;&nbsp;
+                                    <input type="text" id="endDate" class="form-control " onfocus="WdatePicker()" readonly="readonly">
+                                    <input type="button" name="search" id="search-btn2" class=" btn-flat btn-sm layui-btn" value="查询">
+                                    <span class="operate form-inline">
+                                    <button id="delSelect" class="layui-btn">
+                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                        批量删除
+                                    </button>
+                                    <a href="${pageContext.request.contextPath}/flightPlan/toAdd" class="layui-btn" >
+                                        <i class="fa fa-plus-square" aria-hidden="true"></i>
+                                        添加用户
+                                    </a>
+                                </span>
+                                </li>
+                            </ul>
                             <div class="table-responsive box-default form-inline no-footer">
                                 <table class="table table-hover table-bordered">
                                     <thead class="thead-inverse table-bordered">
                                     <tr class="gradeA odd">
-                                        <th><input type="checkbox" id="checkBoxAll">全选</th>
+                                        <th><input type="checkbox" name="ifAll" id="checkBoxAll"  class="fly-checkbox"></th>
                                         <th>计划编号</th>
                                         <th>开始日期</th>
                                         <th>结束日期</th>
@@ -76,7 +93,7 @@
                                     <tbody class="tbody-white">
                                     <c:forEach items="${map['fpList']}" var="list">
                                         <tr class="gradeA even">
-                                            <td for="cbx"><input type="checkbox" name="checkBox" id="cbx"></td>
+                                            <td><div><input type="checkbox" name="selectFlag" id="delet"  class="fly-checkbox" ></div>
                                             <td>${list.fpId}</td>
                                             <td><fmt:formatDate value="${list.startDate}" pattern="yyyy-MM-dd"/></td>
                                             <td><fmt:formatDate value="${list.endDate}" pattern="yyyy-MM-dd"/></td>
@@ -88,8 +105,8 @@
                                             <td>${list.uavId}</td>
                                             <td>
                                                 <i class="fa fa-trash" aria-hidden="true"></i>
-                                                <a href="${pageContext.request.contextPath}/flightPlan/getFlightPlan?id=${list.fpId}"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
-                                                <a href="${pageContext.request.contextPath}/flightPlan/updateDetails?id=${list.fpId}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                                <a href="${pageContext.request.contextPath}/flightPlan/getFlightPlan?id=${list.fpId}"   onclick="Look()"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+                                                <a href="${pageContext.request.contextPath}/flightPlan/updateDetails?id=${list.fpId}" onclick="edit()"> <i class="fa fa-pencil" aria-hidden="true"></i></a>
                                             </td>
                                         </tr>
                                     </c:forEach>
@@ -100,15 +117,13 @@
                     </div>
                     <div id='div' class="panel-footer pager clearfix">
                         <%--<ul id='ul' class="pagination pagination-sm no-margin pull-right">--%>
-                        <button id="delSelect">删除选中项</button>
+                        <%--<button id="delSelect">删除选中项</button>--%>
                             第<span id="curPage">${map["curPage"]}</span>页/共<span id="countPage">${map["countPage"]}</span>页
-
                             <a href="#" id="firstPage">首页</a>
                             <a id="prevPage">上页</a>
                             <a id="nextPage">下页</a>
                             <a href="#" id="lastPage">尾页</a>
                             <select name="" id="selectList"></select>
-
                         <%--</ul>--%>
                         <%--<ul  class="pagination pagination-sm no-margin pull-right seachpage">--%>
                             <%--<li>1/800</li>--%>
